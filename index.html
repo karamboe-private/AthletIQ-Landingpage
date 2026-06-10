@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AthletIQ — AI-Powered Player Intelligence Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg-dark: #050B14;
+      --bg-navy: #081422;
+      --blue: #00A8FF;
+      --green: #00E5A0;
+      --white: #FFFFFF;
+      --muted: #6B7E94;
+      --text-sec: #A0B4C8;
+      --border: rgba(255,255,255,0.07);
+      --border-blue: rgba(0,168,255,0.25);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-dark);
+      color: var(--white);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4, .logo { font-family: 'Space Grotesk', sans-serif; line-height: 1.15; }
+
+    /* ── NAVBAR ── */
+    nav {
+      position: fixed;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 48px);
+      max-width: 1180px;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 28px;
+      background: rgba(5,11,20,0.82);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 700;
+      text-decoration: none;
+      color: var(--white);
+      letter-spacing: -0.4px;
+    }
+    .logo span { color: var(--blue); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--text-sec);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 180ms;
+    }
+    .nav-links a:hover { color: var(--white); cursor: pointer; }
+
+    .btn-nav {
+      background: linear-gradient(135deg, #00A8FF, #0072CC);
+      color: #fff;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 10px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 0.875rem;
+      cursor: pointer;
+      transition: opacity 180ms, box-shadow 180ms;
+    }
+    .btn-nav:hover { opacity: 0.88; box-shadow: 0 0 28px rgba(0,168,255,0.4); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 680px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(5,11,20,0.72) 0%, rgba(5,11,20,0.55) 50%, rgba(5,11,20,1) 100%);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 880px;
+      padding: 0 24px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0,168,255,0.1);
+      border: 1px solid rgba(0,168,255,0.3);
+      border-radius: 100px;
+      padding: 6px 16px 6px 10px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--blue);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      margin-bottom: 24px;
+    }
+    .badge-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--blue);
+      animation: blink 1.6s ease-in-out infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.45;transform:scale(1.5)} }
+
+    .hero h1 {
+      font-size: clamp(2.8rem, 6vw, 5.2rem);
+      font-weight: 700;
+      letter-spacing: -2px;
+      margin-bottom: 20px;
+    }
+    .grad {
+      background: linear-gradient(130deg, var(--blue) 0%, var(--green) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--text-sec);
+      max-width: 560px;
+      margin: 0 auto 36px;
+      line-height: 1.75;
+    }
+
+    .ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #00A8FF, #0072CC);
+      color: #fff;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 12px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 200ms, box-shadow 200ms;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(0,168,255,0.45); }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.18);
+      padding: 15px 30px;
+      border-radius: 12px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: border-color 200ms, background 200ms, transform 200ms;
+    }
+    .btn-ghost:hover { border-color: var(--blue); background: rgba(0,168,255,0.07); transform: translateY(-2px); }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    .scroll-hint span { font-size: 0.7rem; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; }
+    .scroll-line {
+      width: 1px; height: 42px;
+      background: linear-gradient(to bottom, transparent, var(--muted));
+      animation: scrollFade 1.6s ease-in-out infinite;
+    }
+    @keyframes scrollFade { 0%,100%{opacity:0.2} 50%{opacity:0.8} }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      background: var(--bg-navy);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 40px 24px;
+    }
+    .stats-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      text-align: center;
+    }
+    .stat-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--blue), var(--green));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: block;
+      line-height: 1.1;
+    }
+    .stat-lbl { color: var(--muted); font-size: 0.85rem; margin-top: 6px; }
+
+    /* ── SHARED SECTION ── */
+    .section {
+      padding: 100px 24px;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+    .sec-label {
+      display: inline-block;
+      color: var(--blue);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 14px;
+    }
+    .sec-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.7rem);
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+    }
+    .sec-sub {
+      color: var(--text-sec);
+      font-size: 1rem;
+      line-height: 1.75;
+      max-width: 520px;
+    }
+    .sec-head { margin-bottom: 56px; }
+
+    /* ── FEATURES ── */
+    .feat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .feat-card {
+      background: rgba(10,20,40,0.55);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 30px;
+      transition: border-color 280ms, transform 280ms, box-shadow 280ms;
+      cursor: default;
+    }
+    .feat-card:hover {
+      border-color: var(--border-blue);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 48px rgba(0,0,0,0.35), 0 0 28px rgba(0,168,255,0.08);
+    }
+    .feat-card.g:hover { border-color: rgba(0,229,160,0.3); box-shadow: 0 20px 48px rgba(0,0,0,0.35), 0 0 28px rgba(0,229,160,0.08); }
+
+    .feat-icon {
+      width: 50px; height: 50px;
+      background: rgba(0,168,255,0.1);
+      border: 1px solid rgba(0,168,255,0.2);
+      border-radius: 13px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px;
+    }
+    .feat-icon svg { width: 22px; height: 22px; stroke: var(--blue); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .feat-card.g .feat-icon { background: rgba(0,229,160,0.08); border-color: rgba(0,229,160,0.2); }
+    .feat-card.g .feat-icon svg { stroke: var(--green); }
+
+    .feat-card h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 9px; }
+    .feat-card p { color: var(--text-sec); font-size: 0.875rem; line-height: 1.72; }
+
+    /* ── HOW IT WORKS ── */
+    .hiw-wrap {
+      background: var(--bg-navy);
+      padding: 100px 24px;
+    }
+    .hiw-inner { max-width: 1180px; margin: 0 auto; }
+
+    .hiw-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      position: relative;
+      margin-top: 56px;
+    }
+    .hiw-steps::before {
+      content: '';
+      position: absolute;
+      top: 35px;
+      left: calc(16.66% + 16px);
+      right: calc(16.66% + 16px);
+      height: 1px;
+      background: linear-gradient(90deg, var(--blue), var(--green));
+      opacity: 0.25;
+    }
+
+    .hiw-step { text-align: center; padding: 0 16px; }
+    .hiw-num {
+      width: 70px; height: 70px;
+      margin: 0 auto 22px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(0,168,255,0.12), rgba(0,229,160,0.08));
+      border: 1px solid rgba(0,168,255,0.28);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.4rem; font-weight: 700;
+      color: var(--blue);
+    }
+    .hiw-step h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; }
+    .hiw-step p { color: var(--text-sec); font-size: 0.875rem; line-height: 1.72; }
+
+    /* ── VIDEO SECTION ── */
+    .vid-section {
+      position: relative;
+      height: 62vh;
+      min-height: 460px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .vid-section video {
+      position: absolute;
+      inset: 0; width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    .vid-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(5,11,20,0.88) 0%, rgba(0,30,70,0.76) 100%);
+      z-index: 1;
+    }
+    .vid-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 720px;
+      padding: 0 24px;
+    }
+    .vid-content h2 {
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+    }
+    .vid-content p {
+      color: var(--text-sec);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      margin-bottom: 30px;
+    }
+
+    /* ── TESTIMONIALS ── */
+    .test-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    .test-card {
+      background: rgba(10,20,40,0.55);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 30px;
+      transition: border-color 280ms, transform 280ms;
+      cursor: default;
+    }
+    .test-card:hover { border-color: rgba(0,229,160,0.28); transform: translateY(-4px); }
+
+    .stars { display: flex; gap: 3px; margin-bottom: 16px; }
+    .stars svg { width: 16px; height: 16px; fill: #F59E0B; }
+
+    .test-text {
+      color: var(--text-sec);
+      font-size: 0.9rem;
+      line-height: 1.75;
+      font-style: italic;
+      margin-bottom: 22px;
+    }
+    .test-author { display: flex; align-items: center; gap: 12px; }
+    .avatar {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), var(--green));
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700; font-size: 0.8rem; flex-shrink: 0;
+    }
+    .author-name { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 0.9rem; }
+    .author-role { color: var(--muted); font-size: 0.78rem; }
+
+    /* ── PRICING ── */
+    .pricing-wrap {
+      background: var(--bg-navy);
+      padding: 100px 24px;
+    }
+    .pricing-inner { max-width: 1180px; margin: 0 auto; }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 56px;
+      align-items: start;
+    }
+
+    .price-card {
+      background: rgba(10,20,40,0.55);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 34px;
+      transition: transform 280ms;
+      cursor: default;
+    }
+    .price-card.pop {
+      border-color: var(--blue);
+      background: rgba(0,40,90,0.42);
+      box-shadow: 0 0 64px rgba(0,168,255,0.14);
+      transform: scale(1.03);
+    }
+    .price-card:not(.pop):hover { transform: translateY(-4px); }
+
+    .pop-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--blue), var(--green));
+      color: #050B14;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 4px 12px;
+      border-radius: 100px;
+      margin-bottom: 18px;
+    }
+
+    .price-tier { color: var(--muted); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 6px; }
+    .price-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.8rem; font-weight: 700; letter-spacing: -1px;
+      margin-bottom: 4px;
+    }
+    .price-num span { font-size: 0.95rem; font-weight: 400; color: var(--muted); }
+    .price-desc { color: var(--text-sec); font-size: 0.85rem; line-height: 1.65; margin-bottom: 24px; }
+    .price-divider { height: 1px; background: var(--border); margin-bottom: 22px; }
+
+    .price-feats { list-style: none; display: flex; flex-direction: column; gap: 11px; margin-bottom: 28px; }
+    .price-feats li { display: flex; align-items: center; gap: 10px; font-size: 0.875rem; color: var(--text-sec); }
+    .price-feats li svg { width: 16px; height: 16px; stroke: var(--green); fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+
+    .btn-price {
+      display: block; width: 100%; text-align: center;
+      padding: 13px; border-radius: 11px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600; font-size: 0.9rem;
+      cursor: pointer; text-decoration: none;
+      transition: all 200ms;
+    }
+    .btn-price-out {
+      background: transparent; color: #fff;
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+    .btn-price-out:hover { border-color: var(--blue); background: rgba(0,168,255,0.07); }
+    .btn-price-fill {
+      background: linear-gradient(135deg, #00A8FF, #0072CC);
+      color: #fff; border: none;
+    }
+    .btn-price-fill:hover { box-shadow: 0 8px 28px rgba(0,168,255,0.42); transform: translateY(-2px); }
+
+    /* ── FINAL CTA ── */
+    .final-cta { padding: 100px 24px; }
+    .final-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+      background: radial-gradient(ellipse at 50% 0%, rgba(0,168,255,0.09) 0%, transparent 70%);
+      border: 1px solid rgba(0,168,255,0.14);
+      border-radius: 28px;
+      padding: 64px 40px;
+    }
+    .final-inner h2 { font-size: clamp(1.9rem, 4vw, 2.9rem); font-weight: 700; letter-spacing: -0.5px; margin-bottom: 14px; }
+    .final-inner p { color: var(--text-sec); font-size: 1rem; line-height: 1.75; margin-bottom: 34px; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bg-dark);
+      border-top: 1px solid var(--border);
+      padding: 56px 24px 28px;
+    }
+    .foot-inner { max-width: 1180px; margin: 0 auto; }
+    .foot-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    .foot-brand p { color: var(--muted); font-size: 0.85rem; line-height: 1.7; margin-top: 12px; max-width: 260px; }
+    .foot-col h4 { font-family: 'Space Grotesk', sans-serif; font-size: 0.85rem; font-weight: 600; margin-bottom: 16px; }
+    .foot-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .foot-col a { color: var(--muted); text-decoration: none; font-size: 0.85rem; transition: color 180ms; cursor: pointer; }
+    .foot-col a:hover { color: var(--white); }
+    .foot-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 22px;
+      display: flex; align-items: center; justify-content: space-between;
+      color: var(--muted); font-size: 0.78rem;
+    }
+
+    /* ── ANIMATIONS ── */
+    .fu { opacity: 0; transform: translateY(22px); transition: opacity 580ms ease, transform 580ms ease; }
+    .fu.vis { opacity: 1; transform: translateY(0); }
+    .d1 { transition-delay: 80ms; }
+    .d2 { transition-delay: 160ms; }
+    .d3 { transition-delay: 240ms; }
+    .d4 { transition-delay: 320ms; }
+    .d5 { transition-delay: 400ms; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .feat-grid { grid-template-columns: repeat(2, 1fr); }
+      .test-grid { grid-template-columns: repeat(2, 1fr); }
+      .pricing-grid { grid-template-columns: 1fr; max-width: 440px; margin-left: auto; margin-right: auto; }
+      .price-card.pop { transform: scale(1); }
+      .foot-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      nav { padding: 12px 18px; }
+      .nav-links { display: none; }
+      .feat-grid, .hiw-steps, .test-grid { grid-template-columns: 1fr; }
+      .hiw-steps::before { display: none; }
+      .foot-top { grid-template-columns: 1fr; gap: 28px; }
+      .foot-bottom { flex-direction: column; gap: 10px; text-align: center; }
+      .final-inner { padding: 40px 24px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <a href="#" class="logo">Athlet<span>IQ</span></a>
+  <ul class="nav-links">
+    <li><a href="#features">Features</a></li>
+    <li><a href="#how-it-works">How It Works</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="btn-nav" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">Get Started</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <video src="football-player.mp4" autoplay muted loop playsinline></video>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="badge">
+      <div class="badge-dot"></div>
+      AI-Powered Football Intelligence
+    </div>
+    <h1>Protect Players.<br><span class="grad">Maximize Performance.</span></h1>
+    <p>AthletIQ gives football clubs the AI-driven edge to prevent injuries, track form, and manage every player — all in one intelligent platform.</p>
+    <div class="ctas">
+      <a href="#pricing" class="btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="17" height="17"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        Get Started
+      </a>
+      <a href="#how-it-works" class="btn-ghost">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="17" height="17"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+        See How It Works
+      </a>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="fu">
+      <span class="stat-num" data-target="80" data-suffix="%+">0</span>
+      <div class="stat-lbl">Injury Prediction Accuracy</div>
+    </div>
+    <div class="fu d1">
+      <span class="stat-num" data-target="50" data-suffix="%">0</span>
+      <div class="stat-lbl">Injury Reduction Target Year 1</div>
+    </div>
+    <div class="fu d2">
+      <span class="stat-num" data-target="10000" data-suffix="+">0</span>
+      <div class="stat-lbl">Players Tracked</div>
+    </div>
+    <div class="fu d3">
+      <span class="stat-num" data-target="2.4" data-suffix="M+ daily">0</span>
+      <div class="stat-lbl">Data Points Analyzed</div>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<section class="section" id="features">
+  <div class="sec-head">
+    <div class="sec-label fu">Platform Features</div>
+    <h2 class="sec-title fu d1">Everything your club needs<br>to stay ahead</h2>
+    <p class="sec-sub fu d2">From real-time injury alerts to full squad dashboards, AthletIQ is built for modern football clubs.</p>
+  </div>
+  <div class="feat-grid">
+
+    <div class="feat-card fu">
+      <div class="feat-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <h3>AI Injury Risk Prediction</h3>
+      <p>Machine learning models analyze biometric, training load, and historical data to calculate each player's live injury risk score — before problems arise.</p>
+    </div>
+
+    <div class="feat-card g fu d1">
+      <div class="feat-icon">
+        <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      </div>
+      <h3>Player Form Tracking</h3>
+      <p>Monitor every player's physical condition and performance trend in real time. Know who's peaking and who needs rest before it affects the game.</p>
+    </div>
+
+    <div class="feat-card fu d2">
+      <div class="feat-icon">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <h3>Full Squad Overview</h3>
+      <p>One dashboard for your entire squad — availability, fitness, performance ratings, and injury history. Never miss a detail, ever.</p>
+    </div>
+
+    <div class="feat-card g fu d3">
+      <div class="feat-icon">
+        <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg>
+      </div>
+      <h3>Advanced Analytics</h3>
+      <p>Deep-dive reporting with custom KPIs, trend analysis, and exportable reports. Turn raw GPS and sensor data into clear, actionable decisions.</p>
+    </div>
+
+    <div class="feat-card fu d4">
+      <div class="feat-icon">
+        <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+      </div>
+      <h3>Smart Alerts</h3>
+      <p>Instant notifications when a player's risk threshold is exceeded or form drops. Act fast — not after the fact.</p>
+    </div>
+
+    <div class="feat-card g fu d5">
+      <div class="feat-icon">
+        <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+      </div>
+      <h3>Device Integration</h3>
+      <p>Seamlessly connects with GPS vests, heart rate monitors, video analysis tools, and existing club management systems.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<div class="hiw-wrap" id="how-it-works">
+  <div class="hiw-inner">
+    <div class="sec-head">
+      <div class="sec-label fu">Simple Process</div>
+      <h2 class="sec-title fu d1">Up and running in minutes</h2>
+      <p class="sec-sub fu d2">No complex setup. No steep learning curve. Just powerful insights, instantly.</p>
+    </div>
+    <div class="hiw-steps">
+      <div class="hiw-step fu">
+        <div class="hiw-num">01</div>
+        <h3>Connect Your Data</h3>
+        <p>Integrate existing wearables, GPS trackers, and club systems in minutes with our plug-and-play connectors.</p>
+      </div>
+      <div class="hiw-step fu d2">
+        <div class="hiw-num">02</div>
+        <h3>AI Analyzes &amp; Learns</h3>
+        <p>Our models continuously process incoming data, learning each player's unique physical profile and patterns.</p>
+      </div>
+      <div class="hiw-step fu d4">
+        <div class="hiw-num">03</div>
+        <h3>Act on Insights</h3>
+        <p>Receive clear risk scores and performance reports — so your coaching staff can make confident, data-driven decisions.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- VIDEO SECTION -->
+<section class="vid-section">
+  <video src="stadium.mp4" autoplay muted loop playsinline></video>
+  <div class="vid-overlay"></div>
+  <div class="vid-content">
+    <div class="sec-label fu">Powered by AI</div>
+    <h2 class="fu d1">The future of football<br><span class="grad">is data-driven</span></h2>
+    <p class="fu d2">AthletIQ's AI engine processes millions of data points daily — turning complex biometric and performance signals into the decisions that keep players healthy and teams winning.</p>
+    <a href="#pricing" class="btn-primary fu d3" style="display:inline-flex;">Start Now</a>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section" id="testimonials">
+  <div class="sec-head" style="text-align:center;">
+    <div class="sec-label fu">Trusted by Clubs</div>
+    <h2 class="sec-title fu d1">What coaches are saying</h2>
+  </div>
+  <div class="test-grid">
+
+    <div class="test-card fu">
+      <div class="stars">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <p class="test-text">"We reduced muscular injuries by 34% in our first season with AthletIQ. The risk scores have become essential to our weekly training decisions."</p>
+      <div class="test-author">
+        <div class="avatar">MH</div>
+        <div>
+          <div class="author-name">Marco Henriksen</div>
+          <div class="author-role">Head of Performance, FC Nordvik</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="test-card fu d2">
+      <div class="stars">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <p class="test-text">"The squad dashboard gives me a complete picture every morning. I know who's available, who needs rest, and who's trending up — before I step on the pitch."</p>
+      <div class="test-author">
+        <div class="avatar">SR</div>
+        <div>
+          <div class="author-name">Sofia Ramos</div>
+          <div class="author-role">First Team Manager, Atlético Vale</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="test-card fu d4">
+      <div class="stars">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <p class="test-text">"Integrating AthletIQ with our GPS system took under an hour. The AI insights we get now are light-years ahead of anything we had before."</p>
+      <div class="test-author">
+        <div class="avatar">JL</div>
+        <div>
+          <div class="author-name">James Lowe</div>
+          <div class="author-role">Sports Scientist, Riverside FC</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PRICING -->
+<div class="pricing-wrap" id="pricing">
+  <div class="pricing-inner">
+    <div class="sec-head" style="text-align:center;">
+      <div class="sec-label fu">Pricing</div>
+      <h2 class="sec-title fu d1">Simple, transparent pricing</h2>
+      <p class="sec-sub fu d2" style="margin:0 auto;">No hidden fees. Scale as your club grows.</p>
+    </div>
+    <div class="pricing-grid">
+
+      <div class="price-card fu">
+        <div class="price-tier">Starter</div>
+        <div class="price-num">€199<span>/mo</span></div>
+        <div class="price-desc">Perfect for semi-pro clubs and academies getting started with player data.</div>
+        <div class="price-divider"></div>
+        <ul class="price-feats">
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Up to 30 players</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Injury risk scoring</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Squad overview dashboard</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> 2 device integrations</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Email support</li>
+        </ul>
+        <a href="signup.html?plan=starter" class="btn-price btn-price-out">Get Started</a>
+      </div>
+
+      <div class="price-card pop fu d2">
+        <div class="pop-badge">Most Popular</div>
+        <div class="price-tier">Pro</div>
+        <div class="price-num">€499<span>/mo</span></div>
+        <div class="price-desc">For professional clubs that need the full power of AI-driven player intelligence.</div>
+        <div class="price-divider"></div>
+        <ul class="price-feats">
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Up to 100 players</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Advanced AI risk models</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Real-time form tracking</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Unlimited integrations</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Custom reports &amp; exports</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Priority support</li>
+        </ul>
+        <a href="signup.html?plan=pro" class="btn-price btn-price-fill">Get Started</a>
+      </div>
+
+      <div class="price-card fu d4">
+        <div class="price-tier">Enterprise</div>
+        <div class="price-num" style="font-size:2rem;">Custom</div>
+        <div class="price-desc">For multi-team organizations, federations, and elite clubs with specific needs.</div>
+        <div class="price-divider"></div>
+        <ul class="price-feats">
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Unlimited players</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Custom AI model training</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Multi-squad management</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Full API access</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Dedicated account manager</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> SLA &amp; on-site onboarding</li>
+        </ul>
+        <a href="signup.html?plan=enterprise" class="btn-price btn-price-out">Contact Sales</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- FINAL CTA -->
+<section class="final-cta" id="contact">
+  <div class="final-inner">
+    <div class="sec-label fu" style="display:block;margin-bottom:12px;">Start Today</div>
+    <h2 class="fu d1">Ready to protect your<br>players with AI?</h2>
+    <p class="fu d2">Join 500+ clubs already using AthletIQ to prevent injuries, optimize training, and win more games.</p>
+    <div class="ctas fu d3">
+      <a href="#pricing" class="btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="17" height="17"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        Start Now
+      </a>
+      <a href="mailto:hello@athletiq.ai" class="btn-ghost">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a href="#" class="logo">Athlet<span>IQ</span></a>
+        <p>AI-powered player intelligence for modern football clubs. Prevent injuries, optimize performance, win more.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#">Integrations</a></li>
+          <li><a href="#">Changelog</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Documentation</a></li>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="mailto:hello@athletiq.ai">Contact</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div>© 2025 AthletIQ. All rights reserved.</div>
+      <div>Built for the beautiful game.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Fade-up on scroll
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fu').forEach(el => obs.observe(el));
+
+  // Counter animation
+  function animateCount(el) {
+    const raw = el.dataset.target;
+    const suffix = el.dataset.suffix || '';
+    const isFloat = raw.includes('.');
+    const target = parseFloat(raw);
+    const duration = 1800;
+    const start = performance.now();
+    const run = now => {
+      const t = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - t, 3);
+      const val = eased * target;
+      el.textContent = isFloat ? val.toFixed(1) + suffix : Math.round(val).toLocaleString() + suffix;
+      if (t < 1) requestAnimationFrame(run);
+    };
+    requestAnimationFrame(run);
+  }
+
+  const cObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting && e.target.dataset.target) {
+        animateCount(e.target);
+        cObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('[data-target]').forEach(el => cObs.observe(el));
+</script>
+
+</body>
+</html>
