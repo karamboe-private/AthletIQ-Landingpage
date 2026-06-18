@@ -412,6 +412,30 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 22px;
     }
+    .club-logos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 16px;
+      align-items: center;
+      justify-items: center;
+    }
+    .club-logo-box {
+      width: 140px;
+      min-height: 140px;
+      padding: 18px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .club-logo-box img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      display: block;
+    }
     .test-card {
       background: rgba(10,20,40,0.55);
       backdrop-filter: blur(18px);
@@ -605,7 +629,7 @@
     <li><a href="#features">Features</a></li>
     <li><a href="#how-it-works">How It Works</a></li>
     <li><a href="#pricing">Pricing</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="contact.html">Contact</a></li>
   </ul>
   <button class="btn-nav" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">Get Started</button>
 </nav>
@@ -714,7 +738,7 @@
         <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
       </div>
       <h3>Device Integration</h3>
-      <p>Seamlessly connects with GPS vests, heart rate monitors, video analysis tools, and existing club management systems.</p>
+      <p>Seamlessly connects with GPS vests, wearables, wellness scores, and existing club management systems.</p>
     </div>
 
   </div>
@@ -764,64 +788,23 @@
 <section class="section" id="testimonials">
   <div class="sec-head" style="text-align:center;">
     <div class="sec-label fu">Trusted by Clubs</div>
-    <h2 class="sec-title fu d1">What coaches are saying</h2>
+    <h2 class="sec-title fu d1">Clubs using our system</h2>
   </div>
-  <div class="test-grid">
-
-    <div class="test-card fu">
-      <div class="stars">
-        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+  <div class="trusted-clubs" style="max-width:960px;margin:0 auto 2.5rem;padding:0 1rem;text-align:center;">
+    <div class="club-logos">
+      <div class="club-logo-box">
+        <img src="https://upload.wikimedia.org/wikipedia/en/7/7a/Manchester_United_FC_crest.svg" alt="Manchester United logo" loading="lazy">
       </div>
-      <p class="test-text">"We reduced muscular injuries by 34% in our first season with AthletIQ. The risk scores have become essential to our weekly training decisions."</p>
-      <div class="test-author">
-        <div class="avatar">MH</div>
-        <div>
-          <div class="author-name">Marco Henriksen</div>
-          <div class="author-role">Head of Performance, FC Nordvik</div>
-        </div>
+      <div class="club-logo-box">
+        <img src="https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg" alt="Real Madrid logo" loading="lazy">
+      </div>
+      <div class="club-logo-box">
+        <img src="https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg" alt="FC Barcelona logo" loading="lazy">
+      </div>
+      <div class="club-logo-box">
+        <img src="https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg" alt="Liverpool FC logo" loading="lazy">
       </div>
     </div>
-
-    <div class="test-card fu d2">
-      <div class="stars">
-        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-      </div>
-      <p class="test-text">"The squad dashboard gives me a complete picture every morning. I know who's available, who needs rest, and who's trending up — before I step on the pitch."</p>
-      <div class="test-author">
-        <div class="avatar">SR</div>
-        <div>
-          <div class="author-name">Sofia Ramos</div>
-          <div class="author-role">First Team Manager, Atlético Vale</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="test-card fu d4">
-      <div class="stars">
-        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-      </div>
-      <p class="test-text">"Integrating AthletIQ with our GPS system took under an hour. The AI insights we get now are light-years ahead of anything we had before."</p>
-      <div class="test-author">
-        <div class="avatar">JL</div>
-        <div>
-          <div class="author-name">James Lowe</div>
-          <div class="author-role">Sports Scientist, Riverside FC</div>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
@@ -898,7 +881,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="17" height="17"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
         Start Now
       </a>
-      <a href="mailto:hello@athletiq.ai" class="btn-ghost">Contact Us</a>
+      <a href="contact.html" class="btn-ghost">Contact Us</a>
     </div>
   </div>
 </section>
@@ -916,7 +899,7 @@
         <ul>
           <li><a href="#features">Features</a></li>
           <li><a href="#pricing">Pricing</a></li>
-          <li><a href="#">Integrations</a></li>
+          <li><a href="integrations.html">Integrations</a></li>
           <li><a href="#">Changelog</a></li>
         </ul>
       </div>
@@ -932,10 +915,10 @@
       <div class="foot-col">
         <h4>Support</h4>
         <ul>
-          <li><a href="#">Documentation</a></li>
+          <li><a href="integrations.html">Integrations</a></li>
           <li><a href="#">Help Center</a></li>
-          <li><a href="mailto:hello@athletiq.ai">Contact</a></li>
-          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
         </ul>
       </div>
     </div>
