@@ -488,7 +488,18 @@
       font-size: 0.85rem;
       font-weight: 600;
       color: var(--green);
+      opacity: 0;
       transition: border-color 200ms, background 200ms, transform 200ms;
+    }
+    .outcome-chip.shown { opacity: 1; }
+    .outcome-chip.popped {
+      opacity: 1;
+      animation: chipPop 450ms cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    @keyframes chipPop {
+      from { opacity: 0; transform: translateY(10px) scale(0.9); }
+      50%  { opacity: 1; }
+      to   { transform: none; }
     }
     .outcome-chip:hover {
       border-color: rgba(0,229,160,0.5);
@@ -1258,6 +1269,51 @@
     });
   }, { threshold: 0.5 });
   document.querySelectorAll('[data-target]').forEach(el => cObs.observe(el));
+
+  // Staggered "pop-in" for the result chips. Plays every time the user scrolls
+  // DOWN into the section; scrolling up above it re-arms it. Scrolling up into it
+  // from lower on the page shows the chips with no animation.
+  const outcome = document.querySelector('.tour-outcome');
+  if (outcome) {
+    const chips = outcome.querySelectorAll('.outcome-chip');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let timers = [];
+    let revealed = false;
+
+    const clearTimers = () => { timers.forEach(clearTimeout); timers = []; };
+    const rearm = () => {
+      clearTimers();
+      chips.forEach(c => c.classList.remove('shown', 'popped'));
+      revealed = false;
+    };
+    const showInstant = () => {
+      clearTimers();
+      chips.forEach(c => { c.classList.remove('popped'); c.classList.add('shown'); });
+      revealed = true;
+    };
+    const showStaggered = () => {
+      clearTimers();
+      chips.forEach(c => c.classList.remove('shown', 'popped'));
+      chips.forEach((c, i) => timers.push(setTimeout(() => c.classList.add('popped'), 400 + i * 700)));
+      revealed = true;
+    };
+
+    const oObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          if (e.intersectionRatio < 0.35 || revealed) return;
+          // top < 0 => entered from the top of the viewport = scrolling up into it.
+          // otherwise it entered from below the fold = scrolling down into it.
+          (reduceMotion || e.boundingClientRect.top < 0) ? showInstant() : showStaggered();
+        } else if (e.boundingClientRect.top > 0) {
+          // section has scrolled back below the viewport (user went back up above
+          // it) — re-arm so the next scroll-down replays the animation.
+          rearm();
+        }
+      });
+    }, { threshold: [0, 0.35] });
+    oObs.observe(outcome);
+  }
 </script>
 
 </body>
