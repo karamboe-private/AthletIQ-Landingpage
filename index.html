@@ -253,6 +253,11 @@
       background-clip: text;
       display: block;
       line-height: 1.1;
+      transition: filter 200ms, transform 200ms;
+    }
+    .stat-num:hover {
+      filter: brightness(1.2) drop-shadow(0 0 12px rgba(0,168,255,0.45));
+      transform: translateY(-2px);
     }
     .stat-lbl { color: var(--muted); font-size: 0.85rem; margin-top: 6px; }
 
@@ -587,6 +592,13 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      transition: border-color 220ms, background 220ms, transform 220ms, box-shadow 220ms;
+    }
+    .club-logo-box:hover {
+      border-color: var(--border-blue);
+      background: rgba(255,255,255,0.1);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.3), 0 0 24px rgba(0,168,255,0.1);
     }
     .club-logo-box img {
       width: 80px;
