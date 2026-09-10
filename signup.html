@@ -434,19 +434,20 @@
           </div>
 
           <div class="form-group">
-            <label for="plan">Plan Interest <span class="req">*</span></label>
-            <select id="plan" name="plan" required>
-              <option value="" disabled selected>Select a plan</option>
-              <option>Starter — €199/mo</option>
-              <option>Pro — €499/mo</option>
-              <option>Enterprise — Custom</option>
+            <label for="squad-size">Approximate Squad Size <span class="req">*</span></label>
+            <select id="squad-size" name="squad_size" required>
+              <option value="" disabled selected>Select squad size</option>
+              <option>Under 25 players</option>
+              <option>25–50 players</option>
+              <option>50–100 players</option>
+              <option>100+ players / multiple teams</option>
               <option>Not sure yet</option>
             </select>
           </div>
 
           <div class="form-group full">
             <label for="details">Tell us more</label>
-            <textarea id="details" name="details" placeholder="How many players are in your squad? What's your biggest challenge right now? Any specific integrations you need?"></textarea>
+            <textarea id="details" name="details" placeholder="What's your biggest challenge right now? How many teams do you run? Any specific integrations or requirements we should know about?"></textarea>
           </div>
 
           <div class="form-divider"></div>
@@ -474,20 +475,6 @@
 </div>
 
 <script>
-  // Pre-select plan from URL param e.g. signup.html?plan=pro
-  const params = new URLSearchParams(window.location.search);
-  const planParam = params.get('plan');
-  if (planParam) {
-    const planMap = { starter: 'Starter — €199/mo', pro: 'Pro — €499/mo', enterprise: 'Enterprise — Custom' };
-    const planSelect = document.getElementById('plan');
-    const match = planMap[planParam.toLowerCase()];
-    if (match) {
-      for (let opt of planSelect.options) {
-        if (opt.value === match) { opt.selected = true; break; }
-      }
-    }
-  }
-
   // Form submit
   document.getElementById('signup-form').addEventListener('submit', function(e) {
     e.preventDefault();

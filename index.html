@@ -657,13 +657,7 @@
     }
     .pricing-inner { max-width: 1180px; margin: 0 auto; }
 
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-      margin-top: 56px;
-      align-items: start;
-    }
+    .pricing-single { max-width: 520px; margin: 56px auto 0; }
 
     .price-card {
       background: rgba(10,20,40,0.55);
@@ -671,63 +665,42 @@
       -webkit-backdrop-filter: blur(18px);
       border: 1px solid var(--border);
       border-radius: 24px;
-      padding: 34px;
-      transition: transform 280ms;
-      cursor: default;
+      padding: 40px;
     }
-    .price-card.pop {
+    .price-card.featured {
       border-color: var(--blue);
       background: rgba(0,40,90,0.42);
       box-shadow: 0 0 64px rgba(0,168,255,0.14);
-      transform: scale(1.03);
-    }
-    .price-card:not(.pop):hover { transform: translateY(-4px); }
-
-    .pop-badge {
-      display: inline-block;
-      background: linear-gradient(135deg, var(--blue), var(--green));
-      color: #050B14;
-      font-size: 0.7rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      padding: 4px 12px;
-      border-radius: 100px;
-      margin-bottom: 18px;
     }
 
-    .price-tier { color: var(--muted); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 6px; }
-    .price-num {
+    .price-tier { color: var(--muted); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 10px; }
+    .price-headline {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 2.8rem; font-weight: 700; letter-spacing: -1px;
-      margin-bottom: 4px;
+      font-size: 1.4rem; font-weight: 700; letter-spacing: -0.5px;
+      margin-bottom: 10px;
     }
-    .price-num span { font-size: 0.95rem; font-weight: 400; color: var(--muted); }
-    .price-desc { color: var(--text-sec); font-size: 0.85rem; line-height: 1.65; margin-bottom: 24px; }
+    .price-desc { color: var(--text-sec); font-size: 0.9rem; line-height: 1.7; margin-bottom: 24px; }
     .price-divider { height: 1px; background: var(--border); margin-bottom: 22px; }
 
-    .price-feats { list-style: none; display: flex; flex-direction: column; gap: 11px; margin-bottom: 28px; }
-    .price-feats li { display: flex; align-items: center; gap: 10px; font-size: 0.875rem; color: var(--text-sec); }
+    .price-feats { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+    .price-feats li { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--text-sec); }
     .price-feats li svg { width: 16px; height: 16px; stroke: var(--green); fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
 
     .btn-price {
       display: block; width: 100%; text-align: center;
-      padding: 13px; border-radius: 11px;
+      padding: 15px; border-radius: 12px;
       font-family: 'Space Grotesk', sans-serif;
-      font-weight: 600; font-size: 0.9rem;
+      font-weight: 600; font-size: 0.95rem;
       cursor: pointer; text-decoration: none;
-      transition: all 200ms;
+      transition: transform 200ms, box-shadow 200ms;
     }
-    .btn-price-out {
-      background: transparent; color: #fff;
-      border: 1px solid rgba(255,255,255,0.18);
-    }
-    .btn-price-out:hover { border-color: var(--blue); background: rgba(0,168,255,0.07); }
     .btn-price-fill {
       background: linear-gradient(135deg, #00A8FF, #0072CC);
       color: #fff; border: none;
     }
     .btn-price-fill:hover { box-shadow: 0 8px 28px rgba(0,168,255,0.42); transform: translateY(-2px); }
+
+    .price-foot { color: var(--muted); font-size: 0.8rem; text-align: center; margin-top: 14px; }
 
     /* ── FINAL CTA ── */
     .final-cta { padding: 100px 24px; }
@@ -782,8 +755,6 @@
       .feat-grid { grid-template-columns: repeat(2, 1fr); }
       .test-grid { grid-template-columns: repeat(2, 1fr); }
       .ai-grid { grid-template-columns: 1fr; max-width: 460px; margin-left: auto; margin-right: auto; }
-      .pricing-grid { grid-template-columns: 1fr; max-width: 440px; margin-left: auto; margin-right: auto; }
-      .price-card.pop { transform: scale(1); }
       .foot-top { grid-template-columns: 1fr 1fr; gap: 32px; }
       .stats-inner { grid-template-columns: repeat(2, 1fr); }
     }
@@ -1119,59 +1090,26 @@
   <div class="pricing-inner">
     <div class="sec-head" style="text-align:center;">
       <div class="sec-label fu">Pricing</div>
-      <h2 class="sec-title fu d1">Simple, transparent pricing</h2>
-      <p class="sec-sub fu d2" style="margin:0 auto;">No hidden fees. Scale as your club grows.</p>
+      <h2 class="sec-title fu d1">Pricing built around your club</h2>
+      <p class="sec-sub fu d2" style="margin:0 auto;">Squad size, number of teams, which data sources you use — every club is different. Tell us about yours and we'll put together a plan and a price that fit.</p>
     </div>
-    <div class="pricing-grid">
 
-      <div class="price-card fu">
-        <div class="price-tier">Starter</div>
-        <div class="price-num">€199<span>/mo</span></div>
-        <div class="price-desc">Perfect for semi-pro clubs and academies getting started with player data.</div>
+    <div class="pricing-single fu d2">
+      <div class="price-card featured">
+        <div class="price-tier">Custom plan</div>
+        <div class="price-headline">One plan, shaped to your setup</div>
+        <div class="price-desc">Full access to the AthletIQ platform — scoped and priced around what your club actually needs.</div>
         <div class="price-divider"></div>
         <ul class="price-feats">
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Up to 30 players</li>
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Injury risk scoring</li>
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Squad overview dashboard</li>
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> 2 device integrations</li>
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Email support</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> AI injury-risk monitoring &amp; alerts</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Squad readiness &amp; performance dashboards</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Wearable, GPS &amp; wellness integrations</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Player mobile app with AI coach</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Onboarding, training &amp; ongoing support</li>
         </ul>
-        <a href="signup.html?plan=starter" class="btn-price btn-price-out">Get Started</a>
+        <a href="signup.html" class="btn-price btn-price-fill">Contact Sales</a>
+        <p class="price-foot">We'll get back to you within 1–2 business days.</p>
       </div>
-
-      <div class="price-card pop fu d2">
-        <div class="pop-badge">Most Popular</div>
-        <div class="price-tier">Pro</div>
-        <div class="price-num">€499<span>/mo</span></div>
-        <div class="price-desc">For professional clubs that need the full power of AI-driven player intelligence.</div>
-        <div class="price-divider"></div>
-        <ul class="price-feats">
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Up to 100 players</li>
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Advanced AI risk models</li>
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Real-time form tracking</li>
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Unlimited integrations</li>
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Custom reports &amp; exports</li>
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Priority support</li>
-        </ul>
-        <a href="signup.html?plan=pro" class="btn-price btn-price-fill">Get Started</a>
-      </div>
-
-      <div class="price-card fu d4">
-        <div class="price-tier">Enterprise</div>
-        <div class="price-num" style="font-size:2rem;">Custom</div>
-        <div class="price-desc">For multi-team organizations, federations, and elite clubs with specific needs.</div>
-        <div class="price-divider"></div>
-        <ul class="price-feats">
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Unlimited players</li>
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Custom AI model training</li>
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Multi-squad management</li>
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Full API access</li>
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Dedicated account manager</li>
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> SLA &amp; on-site onboarding</li>
-        </ul>
-        <a href="signup.html?plan=enterprise" class="btn-price btn-price-out">Contact Sales</a>
-      </div>
-
     </div>
   </div>
 </div>
