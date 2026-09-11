@@ -1,0 +1,20 @@
+# Never ship repository metadata or build files into the image.
+#
+# `COPY . /usr/share/nginx/html` in the Dockerfile would otherwise publish the
+# whole .git directory, making the full history downloadable from the public
+# site (e.g. https://athletiq.one/.git/config).
+.git
+.github
+.gitignore
+.dockerignore
+
+# Build plumbing / docs, not web content.
+Dockerfile
+docker-compose.yml
+README.md
+
+# Editor / OS noise.
+.DS_Store
+
+# Stray file from a mistyped `curl -L` invocation.
+-L

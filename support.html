@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support — AthletIQ</title>
+    <meta name="description"
+        content="Support for AthletIQ clubs, coaches, staff and players. Get help with onboarding, sign-in, wearables, GPS integrations and the AthletIQ mobile apps.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg-dark: #050B14;
+            --bg-navy: #081422;
+            --blue: #00A8FF;
+            --green: #00E5A0;
+            --white: #FFFFFF;
+            --muted: #6B7E94;
+            --text-sec: #A0B4C8;
+            --border: rgba(255, 255, 255, 0.08);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            background: radial-gradient(circle at top, rgba(0, 168, 255, 0.06), transparent 30%), var(--bg-dark);
+            color: var(--white);
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(circle at 20% 10%, rgba(0, 168, 255, 0.18), transparent 18%), radial-gradient(circle at 80% 90%, rgba(0, 229, 160, 0.12), transparent 20%);
+            pointer-events: none;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(24px);
+            background: rgba(5, 11, 20, 0.82);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-inner {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 18px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+
+        .logo span {
+            color: var(--blue);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-sec);
+            text-decoration: none;
+            font-size: 0.92rem;
+            transition: color 180ms;
+        }
+
+        .nav-links a:hover {
+            color: var(--white);
+        }
+
+        main {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .hero {
+            padding: 80px 0 40px;
+            text-align: center;
+        }
+
+        .sec-label {
+            color: var(--blue);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.8px;
+            margin-bottom: 16px;
+        }
+
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.05;
+            margin-bottom: 18px;
+        }
+
+        .hero p {
+            color: var(--text-sec);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: rgba(10, 20, 40, 0.75);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 28px;
+            padding: 36px;
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.18);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-bottom: 32px;
+        }
+
+        .info-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 22px;
+            padding: 24px;
+        }
+
+        .info-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .info-card p {
+            color: var(--text-sec);
+            line-height: 1.75;
+            font-size: 0.95rem;
+        }
+
+        .info-card p+p {
+            margin-top: 10px;
+        }
+
+        .info-card a {
+            color: var(--blue);
+            text-decoration: none;
+            word-break: break-word;
+        }
+
+        .info-card a:hover {
+            text-decoration: underline;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #00A8FF, #0072CC);
+            color: #fff;
+            border: none;
+            border-radius: 14px;
+            padding: 15px 24px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 180ms, box-shadow 180ms;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 14px 30px rgba(0, 168, 255, 0.28);
+        }
+
+        h2.section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin: 48px 0 20px;
+        }
+
+        .faq {
+            display: grid;
+            gap: 16px;
+        }
+
+        details {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 20px 22px;
+        }
+
+        details[open] {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: 600;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            list-style: none;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::before {
+            content: '+';
+            color: var(--blue);
+            font-weight: 700;
+            margin-right: 12px;
+        }
+
+        details[open] summary::before {
+            content: '–';
+        }
+
+        details p {
+            color: var(--text-sec);
+            line-height: 1.8;
+            font-size: 0.95rem;
+            margin-top: 14px;
+            padding-left: 24px;
+        }
+
+        details ul {
+            color: var(--text-sec);
+            line-height: 1.8;
+            font-size: 0.95rem;
+            margin: 14px 0 0 46px;
+        }
+
+        footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 32px 24px;
+            margin-top: 64px;
+        }
+
+        .footer-inner {
+            max-width: 1180px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-inner a {
+            color: var(--muted);
+            text-decoration: none;
+        }
+
+        .footer-inner a:hover {
+            color: var(--white);
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        @media (max-width: 620px) {
+            .nav-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .card {
+                padding: 26px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a href="index.html" class="logo">Athlet<span>IQ</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#features">Features</a></li>
+                <li><a href="index.html#pricing">Pricing</a></li>
+                <li><a href="integrations.html">Integrations</a></li>
+                <li><a href="support.html">Support</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <section class="hero">
+            <div class="sec-label">Support</div>
+            <h1>We're here to help.</h1>
+            <p>Support for clubs, coaches, performance staff and players using the AthletIQ platform and mobile apps.
+                Most questions are answered the same working day.</p>
+        </section>
+
+        <div class="card">
+            <div class="contact-grid">
+                <div class="info-card">
+                    <h3>Email support</h3>
+                    <p><a
+                            href="mailto:support@athletiq.one?subject=AthletIQ%20support%20request">support@athletiq.one</a>
+                    </p>
+                    <p>Include your club name and the email address on your AthletIQ account so we can find your
+                        organisation quickly.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Response times</h3>
+                    <p>Support is staffed Monday to Friday, 09:00–17:00 CET.</p>
+                    <p>We aim to reply within one business day. Urgent matchday issues are prioritised.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Sales &amp; onboarding</h3>
+                    <p>Exploring pricing or rolling AthletIQ out to a new squad?</p>
+                    <p><a href="contact.html">Contact the team</a> for a demo and a club-specific plan.</p>
+                </div>
+            </div>
+            <div style="text-align:center;">
+                <a class="btn-primary" href="mailto:support@athletiq.one?subject=AthletIQ%20support%20request">Email
+                    support</a>
+            </div>
+        </div>
+
+        <h2 class="section-title">Frequently asked questions</h2>
+        <div class="faq">
+            <details open>
+                <summary>Which AthletIQ app should I install?</summary>
+                <p>There are two mobile apps and they are not interchangeable:</p>
+                <ul>
+                    <li><strong>AthletIQ Staff</strong> — for coaches, trainers and medical personnel. Dashboard, squad
+                        readiness, team calendar and staff messaging.</li>
+                    <li><strong>AthletIQ</strong> — for players. Wellness check-in, training log, ACWR, wearable data
+                        and the AI coach.</li>
+                </ul>
+                <p>Staff accounts are refused by the player app and vice versa. If you hold both a staff and a player
+                    role at your club, your account is treated as a player account — contact your club administrator if
+                    that is wrong.</p>
+            </details>
+            <details>
+                <summary>I can't sign in — what should I check?</summary>
+                <p>Check the organisation you selected on the login screen matches your club, and that you are using the
+                    email address your club administrator registered. Staff accounts also need an active staff
+                    assignment on a team; without one the app will sign you in but show no data.</p>
+                <p>Password resets are handled by your club administrator.</p>
+            </details>
+            <details>
+                <summary>Push notifications aren't arriving</summary>
+                <p>Open your device Settings → Notifications → AthletIQ Staff and confirm notifications are allowed. In
+                    the app, make sure you are signed in — the app registers its push subscription per account.</p>
+                <p>If notifications work on Wi-Fi but not on mobile data, check your device's background data
+                    restrictions.</p>
+            </details>
+            <details>
+                <summary>How do I connect a wearable or GPS provider?</summary>
+                <p>Wearable and GPS integrations are configured per club. See the <a
+                        href="integrations.html">integrations page</a> for the providers we support, then ask your club
+                    administrator or email support to enable the connection.</p>
+            </details>
+            <details>
+                <summary>How do I delete my account or request my data?</summary>
+                <p>AthletIQ is deployed for clubs, and the club owns the data. Ask your club administrator for an export
+                    or deletion — we action verified requests within 30 days.</p>
+                <p>You can also email <a href="mailto:privacy@athletiq.one">privacy@athletiq.one</a>. See the <a
+                        href="privacy.html">privacy policy</a> for full details of what we store and why.</p>
+            </details>
+            <details>
+                <summary>Report a security issue</summary>
+                <p>Please email <a href="mailto:security@athletiq.one">security@athletiq.one</a> rather than posting
+                    publicly. We will acknowledge your report and keep you updated while we investigate.</p>
+            </details>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-inner">
+            <div>© 2025 AthletIQ. All rights reserved.</div>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="support.html">Support</a>
+                <a href="contact.html">Contact</a>
+                <a href="index.html">Return to homepage</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

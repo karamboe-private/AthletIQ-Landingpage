@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AthletIQ — AI-Powered Player Intelligence Platform</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     :root {
       --bg-dark: #050B14;
@@ -18,11 +27,13 @@
       --white: #FFFFFF;
       --muted: #6B7E94;
       --text-sec: #A0B4C8;
-      --border: rgba(255,255,255,0.07);
-      --border-blue: rgba(0,168,255,0.25);
+      --border: rgba(255, 255, 255, 0.07);
+      --border-blue: rgba(0, 168, 255, 0.25);
     }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       font-family: 'Inter', sans-serif;
@@ -32,7 +43,14 @@
       line-height: 1.6;
     }
 
-    h1, h2, h3, h4, .logo { font-family: 'Space Grotesk', sans-serif; line-height: 1.15; }
+    h1,
+    h2,
+    h3,
+    h4,
+    .logo {
+      font-family: 'Space Grotesk', sans-serif;
+      line-height: 1.15;
+    }
 
     /* ── NAVBAR ── */
     nav {
@@ -47,7 +65,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 14px 28px;
-      background: rgba(5,11,20,0.82);
+      background: rgba(5, 11, 20, 0.82);
       backdrop-filter: blur(24px);
       -webkit-backdrop-filter: blur(24px);
       border: 1px solid var(--border);
@@ -61,7 +79,10 @@
       color: var(--white);
       letter-spacing: -0.4px;
     }
-    .logo span { color: var(--blue); }
+
+    .logo span {
+      color: var(--blue);
+    }
 
     .nav-links {
       display: flex;
@@ -69,6 +90,7 @@
       gap: 32px;
       list-style: none;
     }
+
     .nav-links a {
       color: var(--text-sec);
       text-decoration: none;
@@ -76,7 +98,11 @@
       font-weight: 500;
       transition: color 180ms;
     }
-    .nav-links a:hover { color: var(--white); cursor: pointer; }
+
+    .nav-links a:hover {
+      color: var(--white);
+      cursor: pointer;
+    }
 
     .btn-nav {
       background: linear-gradient(135deg, #00A8FF, #0072CC);
@@ -90,7 +116,11 @@
       cursor: pointer;
       transition: opacity 180ms, box-shadow 180ms;
     }
-    .btn-nav:hover { opacity: 0.88; box-shadow: 0 0 28px rgba(0,168,255,0.4); }
+
+    .btn-nav:hover {
+      opacity: 0.88;
+      box-shadow: 0 0 28px rgba(0, 168, 255, 0.4);
+    }
 
     /* ── HERO ── */
     .hero {
@@ -115,7 +145,7 @@
     .hero-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(5,11,20,0.72) 0%, rgba(5,11,20,0.55) 50%, rgba(5,11,20,1) 100%);
+      background: linear-gradient(to bottom, rgba(5, 11, 20, 0.72) 0%, rgba(5, 11, 20, 0.55) 50%, rgba(5, 11, 20, 1) 100%);
       z-index: 1;
     }
 
@@ -131,8 +161,8 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(0,168,255,0.1);
-      border: 1px solid rgba(0,168,255,0.3);
+      background: rgba(0, 168, 255, 0.1);
+      border: 1px solid rgba(0, 168, 255, 0.3);
       border-radius: 100px;
       padding: 6px 16px 6px 10px;
       font-size: 0.75rem;
@@ -142,13 +172,28 @@
       letter-spacing: 1.2px;
       margin-bottom: 24px;
     }
+
     .badge-dot {
-      width: 7px; height: 7px;
+      width: 7px;
+      height: 7px;
       border-radius: 50%;
       background: var(--blue);
       animation: blink 1.6s ease-in-out infinite;
     }
-    @keyframes blink { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.45;transform:scale(1.5)} }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1)
+      }
+
+      50% {
+        opacity: 0.45;
+        transform: scale(1.5)
+      }
+    }
 
     .hero h1 {
       font-size: clamp(2.8rem, 6vw, 5.2rem);
@@ -156,6 +201,7 @@
       letter-spacing: -2px;
       margin-bottom: 20px;
     }
+
     .grad {
       background: linear-gradient(130deg, var(--blue) 0%, var(--green) 100%);
       -webkit-background-clip: text;
@@ -171,7 +217,12 @@
       line-height: 1.75;
     }
 
-    .ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .ctas {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
 
     .btn-primary {
       display: inline-flex;
@@ -189,7 +240,11 @@
       text-decoration: none;
       transition: transform 200ms, box-shadow 200ms;
     }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(0,168,255,0.45); }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 32px rgba(0, 168, 255, 0.45);
+    }
 
     .btn-ghost {
       display: inline-flex;
@@ -197,7 +252,7 @@
       gap: 8px;
       background: transparent;
       color: #fff;
-      border: 1px solid rgba(255,255,255,0.18);
+      border: 1px solid rgba(255, 255, 255, 0.18);
       padding: 15px 30px;
       border-radius: 12px;
       font-family: 'Space Grotesk', sans-serif;
@@ -207,7 +262,12 @@
       text-decoration: none;
       transition: border-color 200ms, background 200ms, transform 200ms;
     }
-    .btn-ghost:hover { border-color: var(--blue); background: rgba(0,168,255,0.07); transform: translateY(-2px); }
+
+    .btn-ghost:hover {
+      border-color: var(--blue);
+      background: rgba(0, 168, 255, 0.07);
+      transform: translateY(-2px);
+    }
 
     .scroll-hint {
       position: absolute;
@@ -220,13 +280,32 @@
       align-items: center;
       gap: 6px;
     }
-    .scroll-hint span { font-size: 0.7rem; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; }
+
+    .scroll-hint span {
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
     .scroll-line {
-      width: 1px; height: 42px;
+      width: 1px;
+      height: 42px;
       background: linear-gradient(to bottom, transparent, var(--muted));
       animation: scrollFade 1.6s ease-in-out infinite;
     }
-    @keyframes scrollFade { 0%,100%{opacity:0.2} 50%{opacity:0.8} }
+
+    @keyframes scrollFade {
+
+      0%,
+      100% {
+        opacity: 0.2
+      }
+
+      50% {
+        opacity: 0.8
+      }
+    }
 
     /* ── STATS BAR ── */
     .stats-bar {
@@ -235,6 +314,7 @@
       border-bottom: 1px solid var(--border);
       padding: 40px 24px;
     }
+
     .stats-inner {
       max-width: 1180px;
       margin: 0 auto;
@@ -243,6 +323,7 @@
       gap: 16px;
       text-align: center;
     }
+
     .stat-num {
       font-family: 'Space Grotesk', sans-serif;
       font-size: 2.5rem;
@@ -255,11 +336,17 @@
       line-height: 1.1;
       transition: filter 200ms, transform 200ms;
     }
+
     .stat-num:hover {
-      filter: brightness(1.2) drop-shadow(0 0 12px rgba(0,168,255,0.45));
+      filter: brightness(1.2) drop-shadow(0 0 12px rgba(0, 168, 255, 0.45));
       transform: translateY(-2px);
     }
-    .stat-lbl { color: var(--muted); font-size: 0.85rem; margin-top: 6px; }
+
+    .stat-lbl {
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-top: 6px;
+    }
 
     /* ── SHARED SECTION ── */
     .section {
@@ -267,6 +354,7 @@
       max-width: 1180px;
       margin: 0 auto;
     }
+
     .sec-label {
       display: inline-block;
       color: var(--blue);
@@ -276,19 +364,24 @@
       letter-spacing: 2px;
       margin-bottom: 14px;
     }
+
     .sec-title {
       font-size: clamp(1.8rem, 3.5vw, 2.7rem);
       font-weight: 700;
       letter-spacing: -0.5px;
       margin-bottom: 14px;
     }
+
     .sec-sub {
       color: var(--text-sec);
       font-size: 1rem;
       line-height: 1.75;
       max-width: 520px;
     }
-    .sec-head { margin-bottom: 56px; }
+
+    .sec-head {
+      margin-bottom: 56px;
+    }
 
     /* ── FEATURES ── */
     .feat-grid {
@@ -298,7 +391,7 @@
     }
 
     .feat-card {
-      background: rgba(10,20,40,0.55);
+      background: rgba(10, 20, 40, 0.55);
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
       border: 1px solid var(--border);
@@ -307,34 +400,71 @@
       transition: border-color 280ms, transform 280ms, box-shadow 280ms;
       cursor: default;
     }
+
     .feat-card:hover {
       border-color: var(--border-blue);
       transform: translateY(-4px);
-      box-shadow: 0 20px 48px rgba(0,0,0,0.35), 0 0 28px rgba(0,168,255,0.08);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.35), 0 0 28px rgba(0, 168, 255, 0.08);
     }
-    .feat-card.g:hover { border-color: rgba(0,229,160,0.3); box-shadow: 0 20px 48px rgba(0,0,0,0.35), 0 0 28px rgba(0,229,160,0.08); }
+
+    .feat-card.g:hover {
+      border-color: rgba(0, 229, 160, 0.3);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.35), 0 0 28px rgba(0, 229, 160, 0.08);
+    }
 
     .feat-icon {
-      width: 50px; height: 50px;
-      background: rgba(0,168,255,0.1);
-      border: 1px solid rgba(0,168,255,0.2);
+      width: 50px;
+      height: 50px;
+      background: rgba(0, 168, 255, 0.1);
+      border: 1px solid rgba(0, 168, 255, 0.2);
       border-radius: 13px;
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       margin-bottom: 20px;
     }
-    .feat-icon svg { width: 22px; height: 22px; stroke: var(--blue); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-    .feat-card.g .feat-icon { background: rgba(0,229,160,0.08); border-color: rgba(0,229,160,0.2); }
-    .feat-card.g .feat-icon svg { stroke: var(--green); }
 
-    .feat-card h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 9px; }
-    .feat-card p { color: var(--text-sec); font-size: 0.875rem; line-height: 1.72; }
+    .feat-icon svg {
+      width: 22px;
+      height: 22px;
+      stroke: var(--blue);
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .feat-card.g .feat-icon {
+      background: rgba(0, 229, 160, 0.08);
+      border-color: rgba(0, 229, 160, 0.2);
+    }
+
+    .feat-card.g .feat-icon svg {
+      stroke: var(--green);
+    }
+
+    .feat-card h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 9px;
+    }
+
+    .feat-card p {
+      color: var(--text-sec);
+      font-size: 0.875rem;
+      line-height: 1.72;
+    }
 
     /* ── PRODUCT TOUR (formerly "How It Works") ── */
     .hiw-wrap {
       background: var(--bg-navy);
       padding: 100px 24px;
     }
-    .hiw-inner { max-width: 1180px; margin: 0 auto; }
+
+    .hiw-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
 
     .tour-steps {
       position: relative;
@@ -343,10 +473,13 @@
       gap: 72px;
       margin-top: 56px;
     }
+
     .tour-steps::before {
       content: '';
       position: absolute;
-      top: 8px; bottom: 8px; left: 50%;
+      top: 8px;
+      bottom: 8px;
+      left: 50%;
       width: 1px;
       transform: translateX(-50%);
       background: linear-gradient(180deg, var(--blue), var(--green));
@@ -359,22 +492,44 @@
       align-items: center;
       gap: 48px;
     }
-    .tour-step.rev { flex-direction: row-reverse; }
 
-    .tour-text { flex: 1 1 0; min-width: 0; }
+    .tour-step.rev {
+      flex-direction: row-reverse;
+    }
+
+    .tour-text {
+      flex: 1 1 0;
+      min-width: 0;
+    }
+
     .tour-num {
-      width: 44px; height: 44px;
+      width: 44px;
+      height: 44px;
       margin-bottom: 16px;
       border-radius: 50%;
-      background: linear-gradient(135deg, rgba(0,168,255,0.12), rgba(0,229,160,0.08));
-      border: 1px solid rgba(0,168,255,0.28);
-      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, rgba(0, 168, 255, 0.12), rgba(0, 229, 160, 0.08));
+      border: 1px solid rgba(0, 168, 255, 0.28);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 1rem; font-weight: 700;
+      font-size: 1rem;
+      font-weight: 700;
       color: var(--blue);
     }
-    .tour-text h3 { font-size: 1.3rem; font-weight: 600; margin-bottom: 10px; }
-    .tour-text p { color: var(--text-sec); font-size: 0.95rem; line-height: 1.75; max-width: 440px; }
+
+    .tour-text h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .tour-text p {
+      color: var(--text-sec);
+      font-size: 0.95rem;
+      line-height: 1.75;
+      max-width: 440px;
+    }
 
     .tour-media {
       flex: 1 1 0;
@@ -392,20 +547,24 @@
       flex-shrink: 0;
       position: relative;
       background: #050505;
-      border: 1px solid rgba(255,255,255,0.14);
+      border: 1px solid rgba(255, 255, 255, 0.14);
       border-radius: 34px;
       padding: 16px 8px 8px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
     }
+
     .phone-frame::before {
       content: '';
       position: absolute;
-      top: 8px; left: 50%;
+      top: 8px;
+      left: 50%;
       transform: translateX(-50%);
-      width: 56px; height: 5px;
+      width: 56px;
+      height: 5px;
       border-radius: 3px;
-      background: rgba(255,255,255,0.16);
+      background: rgba(255, 255, 255, 0.16);
     }
+
     .phone-frame img {
       display: block;
       width: 100%;
@@ -414,7 +573,10 @@
       object-position: top;
       border-radius: 24px;
     }
-    .phone-frame.sm { width: 160px; }
+
+    .phone-frame.sm {
+      width: 160px;
+    }
 
     .browser-frame {
       width: 100%;
@@ -424,7 +586,7 @@
       overflow: hidden;
       border: 1px solid var(--border);
       background: #0a1220;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
     }
 
     /* Grow-on-hover — tour images only; the AI cards' frames sit inside an
@@ -433,27 +595,37 @@
     .tour-media .browser-frame {
       transition: transform 280ms ease, box-shadow 280ms ease, border-color 280ms ease;
     }
+
     .tour-media .phone-frame:hover {
       transform: scale(1.06);
-      box-shadow: 0 28px 70px rgba(0,0,0,0.55), 0 0 32px rgba(0,168,255,0.18);
+      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.55), 0 0 32px rgba(0, 168, 255, 0.18);
       z-index: 2;
     }
+
     .tour-media .browser-frame:hover {
       transform: scale(1.05);
-      box-shadow: 0 28px 70px rgba(0,0,0,0.5), 0 0 32px rgba(0,168,255,0.16);
+      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.5), 0 0 32px rgba(0, 168, 255, 0.16);
       border-color: var(--border-blue);
       z-index: 2;
     }
+
     .browser-bar {
       height: 30px;
       display: flex;
       align-items: center;
       gap: 6px;
       padding: 0 12px;
-      background: rgba(255,255,255,0.04);
+      background: rgba(255, 255, 255, 0.04);
       border-bottom: 1px solid var(--border);
     }
-    .browser-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.18); }
+
+    .browser-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.18);
+    }
+
     .browser-frame img {
       display: block;
       width: 100%;
@@ -468,8 +640,18 @@
       border-top: 1px solid var(--border);
       text-align: center;
     }
-    .tour-outcome h3 { font-size: 1.3rem; font-weight: 600; margin-bottom: 8px; }
-    .tour-outcome p { color: var(--text-sec); font-size: 0.9rem; }
+
+    .tour-outcome h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .tour-outcome p {
+      color: var(--text-sec);
+      font-size: 0.9rem;
+    }
+
     .outcome-chips {
       display: flex;
       flex-wrap: wrap;
@@ -477,12 +659,13 @@
       gap: 14px;
       margin-top: 28px;
     }
+
     .outcome-chip {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(0,229,160,0.08);
-      border: 1px solid rgba(0,229,160,0.25);
+      background: rgba(0, 229, 160, 0.08);
+      border: 1px solid rgba(0, 229, 160, 0.25);
       border-radius: 100px;
       padding: 10px 20px;
       font-size: 0.85rem;
@@ -491,22 +674,47 @@
       opacity: 0;
       transition: border-color 200ms, background 200ms, transform 200ms;
     }
-    .outcome-chip.shown { opacity: 1; }
+
+    .outcome-chip.shown {
+      opacity: 1;
+    }
+
     .outcome-chip.popped {
       opacity: 1;
       animation: chipPop 450ms cubic-bezier(0.34, 1.56, 0.64, 1);
     }
+
     @keyframes chipPop {
-      from { opacity: 0; transform: translateY(10px) scale(0.9); }
-      50%  { opacity: 1; }
-      to   { transform: none; }
+      from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.9);
+      }
+
+      50% {
+        opacity: 1;
+      }
+
+      to {
+        transform: none;
+      }
     }
+
     .outcome-chip:hover {
-      border-color: rgba(0,229,160,0.5);
-      background: rgba(0,229,160,0.14);
+      border-color: rgba(0, 229, 160, 0.5);
+      background: rgba(0, 229, 160, 0.14);
       transform: translateY(-2px);
     }
-    .outcome-chip svg { width: 15px; height: 15px; stroke: var(--green); fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+
+    .outcome-chip svg {
+      width: 15px;
+      height: 15px;
+      stroke: var(--green);
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+    }
 
     /* ── AI FEATURES ── */
     .ai-grid {
@@ -514,8 +722,9 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 22px;
     }
+
     .ai-card {
-      background: rgba(10,20,40,0.55);
+      background: rgba(10, 20, 40, 0.55);
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
       border: 1px solid var(--border);
@@ -523,20 +732,38 @@
       overflow: hidden;
       transition: border-color 280ms, transform 280ms, box-shadow 280ms;
     }
+
     .ai-card:hover {
       border-color: var(--border-blue);
       transform: translateY(-4px);
-      box-shadow: 0 20px 48px rgba(0,0,0,0.35), 0 0 28px rgba(0,168,255,0.08);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.35), 0 0 28px rgba(0, 168, 255, 0.08);
     }
+
     .ai-card-media {
       padding: 26px 20px 0;
       display: flex;
       justify-content: center;
     }
-    .ai-card-media .browser-frame { box-shadow: none; }
-    .ai-card-body { padding: 22px 24px 28px; }
-    .ai-card-body h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 9px; }
-    .ai-card-body p { color: var(--text-sec); font-size: 0.875rem; line-height: 1.72; }
+
+    .ai-card-media .browser-frame {
+      box-shadow: none;
+    }
+
+    .ai-card-body {
+      padding: 22px 24px 28px;
+    }
+
+    .ai-card-body h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 9px;
+    }
+
+    .ai-card-body p {
+      color: var(--text-sec);
+      font-size: 0.875rem;
+      line-height: 1.72;
+    }
 
     /* ── VIDEO SECTION ── */
     .vid-section {
@@ -548,18 +775,23 @@
       justify-content: center;
       overflow: hidden;
     }
+
     .vid-section video {
       position: absolute;
-      inset: 0; width: 100%; height: 100%;
+      inset: 0;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
       z-index: 0;
     }
+
     .vid-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(5,11,20,0.88) 0%, rgba(0,30,70,0.76) 100%);
+      background: linear-gradient(135deg, rgba(5, 11, 20, 0.88) 0%, rgba(0, 30, 70, 0.76) 100%);
       z-index: 1;
     }
+
     .vid-content {
       position: relative;
       z-index: 2;
@@ -567,12 +799,14 @@
       max-width: 720px;
       padding: 0 24px;
     }
+
     .vid-content h2 {
       font-size: clamp(1.9rem, 4vw, 3rem);
       font-weight: 700;
       letter-spacing: -0.5px;
       margin-bottom: 14px;
     }
+
     .vid-content p {
       color: var(--text-sec);
       font-size: 1.05rem;
@@ -586,6 +820,7 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 22px;
     }
+
     .club-logos {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -593,32 +828,36 @@
       align-items: center;
       justify-items: center;
     }
+
     .club-logo-box {
       width: 140px;
       min-height: 140px;
       padding: 18px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 20px;
       display: flex;
       align-items: center;
       justify-content: center;
       transition: border-color 220ms, background 220ms, transform 220ms, box-shadow 220ms;
     }
+
     .club-logo-box:hover {
       border-color: var(--border-blue);
-      background: rgba(255,255,255,0.1);
+      background: rgba(255, 255, 255, 0.1);
       transform: translateY(-4px);
-      box-shadow: 0 16px 40px rgba(0,0,0,0.3), 0 0 24px rgba(0,168,255,0.1);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3), 0 0 24px rgba(0, 168, 255, 0.1);
     }
+
     .club-logo-box img {
       width: 80px;
       height: 80px;
       object-fit: contain;
       display: block;
     }
+
     .test-card {
-      background: rgba(10,20,40,0.55);
+      background: rgba(10, 20, 40, 0.55);
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
       border: 1px solid var(--border);
@@ -627,10 +866,23 @@
       transition: border-color 280ms, transform 280ms;
       cursor: default;
     }
-    .test-card:hover { border-color: rgba(0,229,160,0.28); transform: translateY(-4px); }
 
-    .stars { display: flex; gap: 3px; margin-bottom: 16px; }
-    .stars svg { width: 16px; height: 16px; fill: #F59E0B; }
+    .test-card:hover {
+      border-color: rgba(0, 229, 160, 0.28);
+      transform: translateY(-4px);
+    }
+
+    .stars {
+      display: flex;
+      gap: 3px;
+      margin-bottom: 16px;
+    }
+
+    .stars svg {
+      width: 16px;
+      height: 16px;
+      fill: #F59E0B;
+    }
 
     .test-text {
       color: var(--text-sec);
@@ -639,82 +891,186 @@
       font-style: italic;
       margin-bottom: 22px;
     }
-    .test-author { display: flex; align-items: center; gap: 12px; }
-    .avatar {
-      width: 42px; height: 42px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--blue), var(--green));
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700; font-size: 0.8rem; flex-shrink: 0;
+
+    .test-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
-    .author-name { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 0.9rem; }
-    .author-role { color: var(--muted); font-size: 0.78rem; }
+
+    .avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), var(--green));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
+
+    .author-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .author-role {
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
 
     /* ── PRICING ── */
     .pricing-wrap {
       background: var(--bg-navy);
       padding: 100px 24px;
     }
-    .pricing-inner { max-width: 1180px; margin: 0 auto; }
 
-    .pricing-single { max-width: 520px; margin: 56px auto 0; }
+    .pricing-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .pricing-single {
+      max-width: 520px;
+      margin: 56px auto 0;
+    }
 
     .price-card {
-      background: rgba(10,20,40,0.55);
+      background: rgba(10, 20, 40, 0.55);
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
       border: 1px solid var(--border);
       border-radius: 24px;
       padding: 40px;
     }
+
     .price-card.featured {
       border-color: var(--blue);
-      background: rgba(0,40,90,0.42);
-      box-shadow: 0 0 64px rgba(0,168,255,0.14);
+      background: rgba(0, 40, 90, 0.42);
+      box-shadow: 0 0 64px rgba(0, 168, 255, 0.14);
     }
 
-    .price-tier { color: var(--muted); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 10px; }
-    .price-headline {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.4rem; font-weight: 700; letter-spacing: -0.5px;
+    .price-tier {
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
       margin-bottom: 10px;
     }
-    .price-desc { color: var(--text-sec); font-size: 0.9rem; line-height: 1.7; margin-bottom: 24px; }
-    .price-divider { height: 1px; background: var(--border); margin-bottom: 22px; }
 
-    .price-feats { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
-    .price-feats li { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--text-sec); }
-    .price-feats li svg { width: 16px; height: 16px; stroke: var(--green); fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+    .price-headline {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+    }
+
+    .price-desc {
+      color: var(--text-sec);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .price-divider {
+      height: 1px;
+      background: var(--border);
+      margin-bottom: 22px;
+    }
+
+    .price-feats {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .price-feats li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: var(--text-sec);
+    }
+
+    .price-feats li svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--green);
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+    }
 
     .btn-price {
-      display: block; width: 100%; text-align: center;
-      padding: 15px; border-radius: 12px;
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 15px;
+      border-radius: 12px;
       font-family: 'Space Grotesk', sans-serif;
-      font-weight: 600; font-size: 0.95rem;
-      cursor: pointer; text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      text-decoration: none;
       transition: transform 200ms, box-shadow 200ms;
     }
+
     .btn-price-fill {
       background: linear-gradient(135deg, #00A8FF, #0072CC);
-      color: #fff; border: none;
+      color: #fff;
+      border: none;
     }
-    .btn-price-fill:hover { box-shadow: 0 8px 28px rgba(0,168,255,0.42); transform: translateY(-2px); }
 
-    .price-foot { color: var(--muted); font-size: 0.8rem; text-align: center; margin-top: 14px; }
+    .btn-price-fill:hover {
+      box-shadow: 0 8px 28px rgba(0, 168, 255, 0.42);
+      transform: translateY(-2px);
+    }
+
+    .price-foot {
+      color: var(--muted);
+      font-size: 0.8rem;
+      text-align: center;
+      margin-top: 14px;
+    }
 
     /* ── FINAL CTA ── */
-    .final-cta { padding: 100px 24px; }
+    .final-cta {
+      padding: 100px 24px;
+    }
+
     .final-inner {
       max-width: 720px;
       margin: 0 auto;
       text-align: center;
-      background: radial-gradient(ellipse at 50% 0%, rgba(0,168,255,0.09) 0%, transparent 70%);
-      border: 1px solid rgba(0,168,255,0.14);
+      background: radial-gradient(ellipse at 50% 0%, rgba(0, 168, 255, 0.09) 0%, transparent 70%);
+      border: 1px solid rgba(0, 168, 255, 0.14);
       border-radius: 28px;
       padding: 64px 40px;
     }
-    .final-inner h2 { font-size: clamp(1.9rem, 4vw, 2.9rem); font-weight: 700; letter-spacing: -0.5px; margin-bottom: 14px; }
-    .final-inner p { color: var(--text-sec); font-size: 1rem; line-height: 1.75; margin-bottom: 34px; }
+
+    .final-inner h2 {
+      font-size: clamp(1.9rem, 4vw, 2.9rem);
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+    }
+
+    .final-inner p {
+      color: var(--text-sec);
+      font-size: 1rem;
+      line-height: 1.75;
+      margin-bottom: 34px;
+    }
 
     /* ── FOOTER ── */
     footer {
@@ -722,537 +1078,759 @@
       border-top: 1px solid var(--border);
       padding: 56px 24px 28px;
     }
-    .foot-inner { max-width: 1180px; margin: 0 auto; }
+
+    .foot-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
     .foot-top {
       display: grid;
       grid-template-columns: 2fr 1fr 1fr 1fr;
       gap: 48px;
       margin-bottom: 48px;
     }
-    .foot-brand p { color: var(--muted); font-size: 0.85rem; line-height: 1.7; margin-top: 12px; max-width: 260px; }
-    .foot-col h4 { font-family: 'Space Grotesk', sans-serif; font-size: 0.85rem; font-weight: 600; margin-bottom: 16px; }
-    .foot-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .foot-col a { color: var(--muted); text-decoration: none; font-size: 0.85rem; transition: color 180ms; cursor: pointer; }
-    .foot-col a:hover { color: var(--white); }
+
+    .foot-brand p {
+      color: var(--muted);
+      font-size: 0.85rem;
+      line-height: 1.7;
+      margin-top: 12px;
+      max-width: 260px;
+    }
+
+    .foot-col h4 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .foot-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .foot-col a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 180ms;
+      cursor: pointer;
+    }
+
+    .foot-col a:hover {
+      color: var(--white);
+    }
+
     .foot-bottom {
       border-top: 1px solid var(--border);
       padding-top: 22px;
-      display: flex; align-items: center; justify-content: space-between;
-      color: var(--muted); font-size: 0.78rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: 0.78rem;
     }
 
     /* ── ANIMATIONS ── */
-    .fu { opacity: 0; transform: translateY(22px); transition: opacity 580ms ease, transform 580ms ease; }
-    .fu.vis { opacity: 1; transform: translateY(0); }
-    .d1 { transition-delay: 80ms; }
-    .d2 { transition-delay: 160ms; }
-    .d3 { transition-delay: 240ms; }
-    .d4 { transition-delay: 320ms; }
-    .d5 { transition-delay: 400ms; }
+    .fu {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 580ms ease, transform 580ms ease;
+    }
+
+    .fu.vis {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .d1 {
+      transition-delay: 80ms;
+    }
+
+    .d2 {
+      transition-delay: 160ms;
+    }
+
+    .d3 {
+      transition-delay: 240ms;
+    }
+
+    .d4 {
+      transition-delay: 320ms;
+    }
+
+    .d5 {
+      transition-delay: 400ms;
+    }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 1024px) {
-      .feat-grid { grid-template-columns: repeat(2, 1fr); }
-      .test-grid { grid-template-columns: repeat(2, 1fr); }
-      .ai-grid { grid-template-columns: 1fr; max-width: 460px; margin-left: auto; margin-right: auto; }
-      .foot-top { grid-template-columns: 1fr 1fr; gap: 32px; }
-      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .feat-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .test-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .ai-grid {
+        grid-template-columns: 1fr;
+        max-width: 460px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .foot-top {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+
+      .stats-inner {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
+
     @media (max-width: 768px) {
-      nav { padding: 12px 18px; }
-      .nav-links { display: none; }
-      .feat-grid, .test-grid { grid-template-columns: 1fr; }
-      .tour-step, .tour-step.rev { flex-direction: column; gap: 28px; }
-      .tour-steps::before { display: none; }
-      .tour-text p { max-width: none; }
-      .foot-top { grid-template-columns: 1fr; gap: 28px; }
-      .foot-bottom { flex-direction: column; gap: 10px; text-align: center; }
-      .final-inner { padding: 40px 24px; }
+      nav {
+        padding: 12px 18px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .feat-grid,
+      .test-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .tour-step,
+      .tour-step.rev {
+        flex-direction: column;
+        gap: 28px;
+      }
+
+      .tour-steps::before {
+        display: none;
+      }
+
+      .tour-text p {
+        max-width: none;
+      }
+
+      .foot-top {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .foot-bottom {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+      }
+
+      .final-inner {
+        padding: 40px 24px;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
     }
   </style>
 </head>
+
 <body>
 
-<!-- NAVBAR -->
-<nav>
-  <a href="#" class="logo">Athlet<span>IQ</span></a>
-  <ul class="nav-links">
-    <li><a href="#features">Features</a></li>
-    <li><a href="#how-it-works">How It Works</a></li>
-    <li><a href="#pricing">Pricing</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-  <button class="btn-nav" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">Get Started</button>
-</nav>
+  <!-- NAVBAR -->
+  <nav>
+    <a href="#" class="logo">Athlet<span>IQ</span></a>
+    <ul class="nav-links">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#how-it-works">How It Works</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="btn-nav" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">Get
+      Started</button>
+  </nav>
 
-<!-- HERO -->
-<section class="hero" id="home">
-  <video src="football-player.mp4" autoplay muted loop playsinline></video>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <div class="badge">
-      <div class="badge-dot"></div>
-      AI-Powered Football Intelligence
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <video src="football-player.mp4" autoplay muted loop playsinline></video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="badge">
+        <div class="badge-dot"></div>
+        AI-Powered Football Intelligence
+      </div>
+      <h1>Protect Players.<br><span class="grad">Maximize Performance.</span></h1>
+      <p>AthletIQ gives football clubs the AI-driven edge to prevent injuries, track form, and manage every player — all
+        in one intelligent platform.</p>
+      <div class="ctas">
+        <a href="#pricing" class="btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" width="17" height="17">
+            <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+          Get Started
+        </a>
+        <a href="#how-it-works" class="btn-ghost">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" width="17" height="17">
+            <circle cx="12" cy="12" r="10" />
+            <polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none" />
+          </svg>
+          See How It Works
+        </a>
+      </div>
     </div>
-    <h1>Protect Players.<br><span class="grad">Maximize Performance.</span></h1>
-    <p>AthletIQ gives football clubs the AI-driven edge to prevent injuries, track form, and manage every player — all in one intelligent platform.</p>
-    <div class="ctas">
-      <a href="#pricing" class="btn-primary">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="17" height="17"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-        Get Started
-      </a>
-      <a href="#how-it-works" class="btn-ghost">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="17" height="17"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
-        See How It Works
-      </a>
+    <div class="scroll-hint">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stats-inner">
+      <div class="fu">
+        <span class="stat-num" data-target="80" data-suffix="%+">0</span>
+        <div class="stat-lbl">Injury Prediction Accuracy</div>
+      </div>
+      <div class="fu d1">
+        <span class="stat-num" data-target="50" data-suffix="%">0</span>
+        <div class="stat-lbl">Injury Reduction Target Year 1</div>
+      </div>
+      <div class="fu d2">
+        <span class="stat-num" data-target="8" data-suffix="+">0</span>
+        <div class="stat-lbl">Data Sources Tracked Per Player</div>
+      </div>
+      <div class="fu d3">
+        <span class="stat-num" data-target="24" data-suffix="/7">0</span>
+        <div class="stat-lbl">Continuous AI Monitoring</div>
+      </div>
     </div>
   </div>
-  <div class="scroll-hint">
-    <div class="scroll-line"></div>
-    <span>Scroll</span>
-  </div>
-</section>
 
-<!-- STATS BAR -->
-<div class="stats-bar">
-  <div class="stats-inner">
-    <div class="fu">
-      <span class="stat-num" data-target="80" data-suffix="%+">0</span>
-      <div class="stat-lbl">Injury Prediction Accuracy</div>
-    </div>
-    <div class="fu d1">
-      <span class="stat-num" data-target="50" data-suffix="%">0</span>
-      <div class="stat-lbl">Injury Reduction Target Year 1</div>
-    </div>
-    <div class="fu d2">
-      <span class="stat-num" data-target="8" data-suffix="+">0</span>
-      <div class="stat-lbl">Data Sources Tracked Per Player</div>
-    </div>
-    <div class="fu d3">
-      <span class="stat-num" data-target="24" data-suffix="/7">0</span>
-      <div class="stat-lbl">Continuous AI Monitoring</div>
-    </div>
-  </div>
-</div>
-
-<!-- FEATURES -->
-<section class="section" id="features">
-  <div class="sec-head">
-    <div class="sec-label fu">Platform Features</div>
-    <h2 class="sec-title fu d1">Everything your club needs<br>to stay ahead</h2>
-    <p class="sec-sub fu d2">From real-time injury alerts to full squad dashboards, AthletIQ is built for modern football clubs.</p>
-  </div>
-  <div class="feat-grid">
-
-    <div class="feat-card fu">
-      <div class="feat-icon">
-        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      </div>
-      <h3>AI Injury Risk Prediction</h3>
-      <p>Machine learning models analyze biometric, training load, and historical data to calculate each player's live injury risk score — before problems arise.</p>
-    </div>
-
-    <div class="feat-card g fu d1">
-      <div class="feat-icon">
-        <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-      </div>
-      <h3>Player Form Tracking</h3>
-      <p>Monitor every player's physical condition and performance trend in real time. Know who's peaking and who needs rest before it affects the game.</p>
-    </div>
-
-    <div class="feat-card fu d2">
-      <div class="feat-icon">
-        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-      </div>
-      <h3>Full Squad Overview</h3>
-      <p>One dashboard for your entire squad — availability, fitness, performance ratings, and injury history. Never miss a detail, ever.</p>
-    </div>
-
-    <div class="feat-card g fu d3">
-      <div class="feat-icon">
-        <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg>
-      </div>
-      <h3>Advanced Analytics</h3>
-      <p>Deep-dive reporting with custom KPIs, trend analysis, and exportable reports. Turn raw GPS and sensor data into clear, actionable decisions.</p>
-    </div>
-
-    <div class="feat-card fu d4">
-      <div class="feat-icon">
-        <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-      </div>
-      <h3>Smart Alerts</h3>
-      <p>Instant notifications when a player's risk threshold is exceeded or form drops. Act fast — not after the fact.</p>
-    </div>
-
-    <div class="feat-card g fu d5">
-      <div class="feat-icon">
-        <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
-      </div>
-      <h3>Device Integration</h3>
-      <p>Seamlessly connects with GPS vests, wearables, wellness scores, and existing club management systems.</p>
-    </div>
-
-  </div>
-</section>
-
-<!-- PRODUCT TOUR -->
-<div class="hiw-wrap" id="how-it-works">
-  <div class="hiw-inner">
+  <!-- FEATURES -->
+  <section class="section" id="features">
     <div class="sec-head">
-      <div class="sec-label fu">See It In Action</div>
-      <h2 class="sec-title fu d1">From a good night's sleep<br>to a smarter dashboard</h2>
-      <p class="sec-sub fu d2">One connected flow — from the pillow, to the pitch, to the coach's dashboard — built from the real AthletIQ apps your players and staff use every day.</p>
+      <div class="sec-label fu">Platform Features</div>
+      <h2 class="sec-title fu d1">Everything your club needs<br>to stay ahead</h2>
+      <p class="sec-sub fu d2">From real-time injury alerts to full squad dashboards, AthletIQ is built for modern
+        football clubs.</p>
     </div>
+    <div class="feat-grid">
 
-    <div class="tour-steps">
-
-      <div class="tour-step fu">
-        <div class="tour-text">
-          <div class="tour-num">01</div>
-          <h3>Wearables track sleep overnight</h3>
-          <p>While players sleep, their wearable quietly logs sleep stages, duration, and quality — no manual entry required.</p>
+      <div class="feat-card fu">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          </svg>
         </div>
-        <div class="tour-media">
-          <div class="phone-frame"><img src="assets/screenshots/mobile/sleep.png" alt="AthletIQ mobile app showing a player's nightly sleep duration, score, and stage breakdown" loading="lazy"></div>
-        </div>
+        <h3>AI Injury Risk Prediction</h3>
+        <p>Machine learning models analyze biometric, training load, and historical data to calculate each player's live
+          injury risk score — before problems arise.</p>
       </div>
 
-      <div class="tour-step rev fu">
-        <div class="tour-text">
-          <div class="tour-num">02</div>
-          <h3>A 60-second morning check-in</h3>
-          <p>Each player rates soreness, fatigue, sleep quality, and training readiness before breakfast — building a daily wellness picture for the whole squad.</p>
+      <div class="feat-card g fu d1">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+          </svg>
         </div>
-        <div class="tour-media">
-          <div class="phone-frame"><img src="assets/screenshots/mobile/wellness-checkin.png" alt="AthletIQ mobile app's morning wellness check-in form with soreness, fatigue, sleep, and readiness sliders" loading="lazy"></div>
-        </div>
+        <h3>Player Form Tracking</h3>
+        <p>Monitor every player's physical condition and performance trend in real time. Know who's peaking and who
+          needs rest before it affects the game.</p>
       </div>
 
-      <div class="tour-step fu">
-        <div class="tour-text">
-          <div class="tour-num">03</div>
-          <h3>Coaches check squad readiness</h3>
-          <p>One screen shows who's green, yellow, or red today — reported wellness and training availability side by side, sorted so the players who need attention surface first.</p>
+      <div class="feat-card fu d2">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+          </svg>
         </div>
-        <div class="tour-media">
-          <div class="browser-frame">
-            <div class="browser-bar"><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span></div>
-            <img src="assets/screenshots/frontend/squad-readiness.png" alt="AthletIQ coach platform's squad readiness screen listing every player's readiness and training availability" loading="lazy">
+        <h3>Full Squad Overview</h3>
+        <p>One dashboard for your entire squad — availability, fitness, performance ratings, and injury history. Never
+          miss a detail, ever.</p>
+      </div>
+
+      <div class="feat-card g fu d3">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24">
+            <line x1="18" y1="20" x2="18" y2="10" />
+            <line x1="12" y1="20" x2="12" y2="4" />
+            <line x1="6" y1="20" x2="6" y2="14" />
+            <line x1="2" y1="20" x2="22" y2="20" />
+          </svg>
+        </div>
+        <h3>Advanced Analytics</h3>
+        <p>Deep-dive reporting with custom KPIs, trend analysis, and exportable reports. Turn raw GPS and sensor data
+          into clear, actionable decisions.</p>
+      </div>
+
+      <div class="feat-card fu d4">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+            <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+          </svg>
+        </div>
+        <h3>Smart Alerts</h3>
+        <p>Instant notifications when a player's risk threshold is exceeded or form drops. Act fast — not after the
+          fact.</p>
+      </div>
+
+      <div class="feat-card g fu d5">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24">
+            <circle cx="18" cy="5" r="3" />
+            <circle cx="6" cy="12" r="3" />
+            <circle cx="18" cy="19" r="3" />
+            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+          </svg>
+        </div>
+        <h3>Device Integration</h3>
+        <p>Seamlessly connects with GPS vests, wearables, wellness scores, and existing club management systems.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PRODUCT TOUR -->
+  <div class="hiw-wrap" id="how-it-works">
+    <div class="hiw-inner">
+      <div class="sec-head">
+        <div class="sec-label fu">See It In Action</div>
+        <h2 class="sec-title fu d1">From a good night's sleep<br>to a smarter dashboard</h2>
+        <p class="sec-sub fu d2">One connected flow — from the pillow, to the pitch, to the coach's dashboard — built
+          from the real AthletIQ apps your players and staff use every day.</p>
+      </div>
+
+      <div class="tour-steps">
+
+        <div class="tour-step fu">
+          <div class="tour-text">
+            <div class="tour-num">01</div>
+            <h3>Wearables track sleep overnight</h3>
+            <p>While players sleep, their wearable quietly logs sleep stages, duration, and quality — no manual entry
+              required.</p>
+          </div>
+          <div class="tour-media">
+            <div class="phone-frame"><img src="assets/screenshots/mobile/sleep.png"
+                alt="AthletIQ mobile app showing a player's nightly sleep duration, score, and stage breakdown"
+                loading="lazy"></div>
           </div>
         </div>
-      </div>
 
-      <div class="tour-step rev fu">
-        <div class="tour-text">
-          <div class="tour-num">04</div>
-          <h3>Training gets built around the data</h3>
-          <p>Coaches plan the week's sessions directly against today's readiness — and the moment a session is scheduled, it appears on every player's calendar.</p>
-        </div>
-        <div class="tour-media">
-          <div class="browser-frame">
-            <div class="browser-bar"><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span></div>
-            <img src="assets/screenshots/frontend/trainings.png" alt="AthletIQ coach platform's training setup screen listing scheduled sessions" loading="lazy">
+        <div class="tour-step rev fu">
+          <div class="tour-text">
+            <div class="tour-num">02</div>
+            <h3>A 60-second morning check-in</h3>
+            <p>Each player rates soreness, fatigue, sleep quality, and training readiness before breakfast — building a
+              daily wellness picture for the whole squad.</p>
           </div>
-          <div class="phone-frame"><img src="assets/screenshots/mobile/calendar.png" alt="AthletIQ mobile app calendar showing a player's upcoming training sessions" loading="lazy"></div>
-        </div>
-      </div>
-
-      <div class="tour-step fu">
-        <div class="tour-text">
-          <div class="tour-num">05</div>
-          <h3>Players log the session — the rest is automatic</h3>
-          <p>RPE and duration get logged in seconds, wearable and GPS data sync in behind the scenes, and AthletIQ's models instantly compute session load and ACWR.</p>
-        </div>
-        <div class="tour-media">
-          <div class="phone-frame"><img src="assets/screenshots/mobile/training-log.png" alt="AthletIQ mobile app training log showing weekly and monthly training overview" loading="lazy"></div>
-          <div class="phone-frame"><img src="assets/screenshots/mobile/acwr.png" alt="AthletIQ mobile app ACWR screen showing acute:chronic workload ratio and 28-day load trend" loading="lazy"></div>
-        </div>
-      </div>
-
-      <div class="tour-step rev fu">
-        <div class="tour-text">
-          <div class="tour-num">06</div>
-          <h3>AI keeps watching, around the clock</h3>
-          <p>Readiness and strain trends are monitored continuously — the moment a player drifts into an elevated-risk zone, both the player and the coaching staff are flagged.</p>
-        </div>
-        <div class="tour-media">
-          <div class="browser-frame">
-            <div class="browser-bar"><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span></div>
-            <img src="assets/screenshots/frontend/trends.png" alt="AthletIQ coach platform's trends screen showing squad readiness and ACWR risk bands, plus players to watch today" loading="lazy">
+          <div class="tour-media">
+            <div class="phone-frame"><img src="assets/screenshots/mobile/wellness-checkin.png"
+                alt="AthletIQ mobile app's morning wellness check-in form with soreness, fatigue, sleep, and readiness sliders"
+                loading="lazy"></div>
           </div>
         </div>
-      </div>
 
-      <div class="tour-step fu">
-        <div class="tour-text">
-          <div class="tour-num">07</div>
-          <h3>It all rolls up to one dashboard</h3>
-          <p>Team load, injury-risk trends, and squad availability come together on the coach's dashboard — a clear read on where the whole squad stands, at a glance.</p>
-        </div>
-        <div class="tour-media">
-          <div class="browser-frame">
-            <div class="browser-bar"><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span></div>
-            <img src="assets/screenshots/frontend/dashboard.png" alt="AthletIQ coach platform dashboard showing team load, training availability, and the week's schedule" loading="lazy">
+        <div class="tour-step fu">
+          <div class="tour-text">
+            <div class="tour-num">03</div>
+            <h3>Coaches check squad readiness</h3>
+            <p>One screen shows who's green, yellow, or red today — reported wellness and training availability side by
+              side, sorted so the players who need attention surface first.</p>
+          </div>
+          <div class="tour-media">
+            <div class="browser-frame">
+              <div class="browser-bar"><span class="browser-dot"></span><span class="browser-dot"></span><span
+                  class="browser-dot"></span></div>
+              <img src="assets/screenshots/frontend/squad-readiness.png"
+                alt="AthletIQ coach platform's squad readiness screen listing every player's readiness and training availability"
+                loading="lazy">
+            </div>
           </div>
         </div>
+
+        <div class="tour-step rev fu">
+          <div class="tour-text">
+            <div class="tour-num">04</div>
+            <h3>Training gets built around the data</h3>
+            <p>Coaches plan the week's sessions directly against today's readiness — and the moment a session is
+              scheduled, it appears on every player's calendar.</p>
+          </div>
+          <div class="tour-media">
+            <div class="browser-frame">
+              <div class="browser-bar"><span class="browser-dot"></span><span class="browser-dot"></span><span
+                  class="browser-dot"></span></div>
+              <img src="assets/screenshots/frontend/trainings.png"
+                alt="AthletIQ coach platform's training setup screen listing scheduled sessions" loading="lazy">
+            </div>
+            <div class="phone-frame"><img src="assets/screenshots/mobile/calendar.png"
+                alt="AthletIQ mobile app calendar showing a player's upcoming training sessions" loading="lazy"></div>
+          </div>
+        </div>
+
+        <div class="tour-step fu">
+          <div class="tour-text">
+            <div class="tour-num">05</div>
+            <h3>Players log the session — the rest is automatic</h3>
+            <p>RPE and duration get logged in seconds, wearable and GPS data sync in behind the scenes, and AthletIQ's
+              models instantly compute session load and ACWR.</p>
+          </div>
+          <div class="tour-media">
+            <div class="phone-frame"><img src="assets/screenshots/mobile/training-log.png"
+                alt="AthletIQ mobile app training log showing weekly and monthly training overview" loading="lazy">
+            </div>
+            <div class="phone-frame"><img src="assets/screenshots/mobile/acwr.png"
+                alt="AthletIQ mobile app ACWR screen showing acute:chronic workload ratio and 28-day load trend"
+                loading="lazy"></div>
+          </div>
+        </div>
+
+        <div class="tour-step rev fu">
+          <div class="tour-text">
+            <div class="tour-num">06</div>
+            <h3>AI keeps watching, around the clock</h3>
+            <p>Readiness and strain trends are monitored continuously — the moment a player drifts into an elevated-risk
+              zone, both the player and the coaching staff are flagged.</p>
+          </div>
+          <div class="tour-media">
+            <div class="browser-frame">
+              <div class="browser-bar"><span class="browser-dot"></span><span class="browser-dot"></span><span
+                  class="browser-dot"></span></div>
+              <img src="assets/screenshots/frontend/trends.png"
+                alt="AthletIQ coach platform's trends screen showing squad readiness and ACWR risk bands, plus players to watch today"
+                loading="lazy">
+            </div>
+          </div>
+        </div>
+
+        <div class="tour-step fu">
+          <div class="tour-text">
+            <div class="tour-num">07</div>
+            <h3>It all rolls up to one dashboard</h3>
+            <p>Team load, injury-risk trends, and squad availability come together on the coach's dashboard — a clear
+              read on where the whole squad stands, at a glance.</p>
+          </div>
+          <div class="tour-media">
+            <div class="browser-frame">
+              <div class="browser-bar"><span class="browser-dot"></span><span class="browser-dot"></span><span
+                  class="browser-dot"></span></div>
+              <img src="assets/screenshots/frontend/dashboard.png"
+                alt="AthletIQ coach platform dashboard showing team load, training availability, and the week's schedule"
+                loading="lazy">
+            </div>
+          </div>
+        </div>
+
       </div>
 
-    </div>
-
-    <div class="tour-outcome fu">
-      <h3>The result</h3>
-      <p>Every step feeds the next, automatically.</p>
-      <div class="outcome-chips">
-        <div class="outcome-chip"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Lower injury risk</div>
-        <div class="outcome-chip"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Faster session planning</div>
-        <div class="outcome-chip"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Better squad availability</div>
-        <div class="outcome-chip"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Data-backed decisions</div>
+      <div class="tour-outcome fu">
+        <h3>The result</h3>
+        <p>Every step feeds the next, automatically.</p>
+        <div class="outcome-chips">
+          <div class="outcome-chip"><svg viewBox="0 0 24 24">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>Lower injury risk</div>
+          <div class="outcome-chip"><svg viewBox="0 0 24 24">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>Faster session planning</div>
+          <div class="outcome-chip"><svg viewBox="0 0 24 24">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>Better squad availability</div>
+          <div class="outcome-chip"><svg viewBox="0 0 24 24">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>Data-backed decisions</div>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- VIDEO SECTION -->
-<section class="vid-section">
-  <video src="stadium.mp4" autoplay muted loop playsinline></video>
-  <div class="vid-overlay"></div>
-  <div class="vid-content">
-    <div class="sec-label fu">Powered by AI</div>
-    <h2 class="fu d1">The future of football<br><span class="grad">is data-driven</span></h2>
-    <p class="fu d2">AthletIQ's AI engine processes millions of data points daily — turning complex biometric and performance signals into the decisions that keep players healthy and teams winning.</p>
-    <a href="#pricing" class="btn-primary fu d3" style="display:inline-flex;">Start Now</a>
-  </div>
-</section>
-
-<!-- AI FEATURES -->
-<section class="section" id="ai-features">
-  <div class="sec-head">
-    <div class="sec-label fu">AI Inside</div>
-    <h2 class="sec-title fu d1">AI that works for players<br>and coaches alike</h2>
-    <p class="sec-sub fu d2">Beyond tracking — AthletIQ's AI actively coaches, analyzes, and advises, on both sides of the touchline.</p>
-  </div>
-  <div class="ai-grid">
-
-    <div class="ai-card fu">
-      <div class="ai-card-media">
-        <div class="phone-frame sm"><img src="assets/screenshots/mobile/meal-analysis.png" alt="AthletIQ mobile app's AI meal analysis screen" loading="lazy"></div>
-      </div>
-      <div class="ai-card-body">
-        <h3>AI Meal Analysis</h3>
-        <p>Snap a photo of a meal and AthletIQ estimates calories, protein, carbs, and fat instantly — with a coaching tip to match.</p>
-      </div>
+  <!-- VIDEO SECTION -->
+  <section class="vid-section">
+    <video src="stadium.mp4" autoplay muted loop playsinline></video>
+    <div class="vid-overlay"></div>
+    <div class="vid-content">
+      <div class="sec-label fu">Powered by AI</div>
+      <h2 class="fu d1">The future of football<br><span class="grad">is data-driven</span></h2>
+      <p class="fu d2">AthletIQ's AI engine processes millions of data points daily — turning complex biometric and
+        performance signals into the decisions that keep players healthy and teams winning.</p>
+      <a href="#pricing" class="btn-primary fu d3" style="display:inline-flex;">Start Now</a>
     </div>
+  </section>
 
-    <div class="ai-card fu d2">
-      <div class="ai-card-media">
-        <div class="phone-frame sm"><img src="assets/screenshots/mobile/ai-coach-chat.png" alt="AthletIQ mobile app's AI coach chat answering a player's question about sleep and recovery" loading="lazy"></div>
-      </div>
-      <div class="ai-card-body">
-        <h3>AI Coach, in every player's pocket</h3>
-        <p>Players can ask about recovery, sleep, training load, or readiness any time and get answers grounded in their own data.</p>
-      </div>
+  <!-- AI FEATURES -->
+  <section class="section" id="ai-features">
+    <div class="sec-head">
+      <div class="sec-label fu">AI Inside</div>
+      <h2 class="sec-title fu d1">AI that works for players<br>and coaches alike</h2>
+      <p class="sec-sub fu d2">Beyond tracking — AthletIQ's AI actively coaches, analyzes, and advises, on both sides of
+        the touchline.</p>
     </div>
+    <div class="ai-grid">
 
-    <div class="ai-card fu d4">
-      <div class="ai-card-media">
-        <div class="browser-frame"><img src="assets/screenshots/frontend/coach-assistant.png" alt="AthletIQ coach platform's AI coach assistant answering a question about player risk for an upcoming match" loading="lazy"></div>
+      <div class="ai-card fu">
+        <div class="ai-card-media">
+          <div class="phone-frame sm"><img src="assets/screenshots/mobile/meal-analysis.png"
+              alt="AthletIQ mobile app's AI meal analysis screen" loading="lazy"></div>
+        </div>
+        <div class="ai-card-body">
+          <h3>AI Meal Analysis</h3>
+          <p>Snap a photo of a meal and AthletIQ estimates calories, protein, carbs, and fat instantly — with a coaching
+            tip to match.</p>
+        </div>
       </div>
-      <div class="ai-card-body">
-        <h3>An AI assistant for coaches too</h3>
-        <p>Ask about squad risk, session strain, or how to balance next week's training — the assistant answers using real readiness, load, and match data.</p>
+
+      <div class="ai-card fu d2">
+        <div class="ai-card-media">
+          <div class="phone-frame sm"><img src="assets/screenshots/mobile/ai-coach-chat.png"
+              alt="AthletIQ mobile app's AI coach chat answering a player's question about sleep and recovery"
+              loading="lazy"></div>
+        </div>
+        <div class="ai-card-body">
+          <h3>AI Coach, in every player's pocket</h3>
+          <p>Players can ask about recovery, sleep, training load, or readiness any time and get answers grounded in
+            their own data.</p>
+        </div>
       </div>
+
+      <div class="ai-card fu d4">
+        <div class="ai-card-media">
+          <div class="browser-frame"><img src="assets/screenshots/frontend/coach-assistant.png"
+              alt="AthletIQ coach platform's AI coach assistant answering a question about player risk for an upcoming match"
+              loading="lazy"></div>
+        </div>
+        <div class="ai-card-body">
+          <h3>An AI assistant for coaches too</h3>
+          <p>Ask about squad risk, session strain, or how to balance next week's training — the assistant answers using
+            real readiness, load, and match data.</p>
+        </div>
+      </div>
+
     </div>
+  </section>
 
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="section" id="testimonials">
-  <div class="sec-head" style="text-align:center;">
-    <div class="sec-label fu">Trusted by Clubs</div>
-    <h2 class="sec-title fu d1">Clubs using our system</h2>
-  </div>
-  <div class="trusted-clubs" style="max-width:960px;margin:0 auto 2.5rem;padding:0 1rem;text-align:center;">
-    <div class="club-logos">
-      <div class="club-logo-box">
-        <img src="https://upload.wikimedia.org/wikipedia/en/d/d8/SK_Tr%C3%A6ff.gif" alt="SK Træff logo" loading="lazy">
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PRICING -->
-<div class="pricing-wrap" id="pricing">
-  <div class="pricing-inner">
+  <!-- TESTIMONIALS -->
+  <section class="section" id="testimonials">
     <div class="sec-head" style="text-align:center;">
-      <div class="sec-label fu">Pricing</div>
-      <h2 class="sec-title fu d1">Pricing built around your club</h2>
-      <p class="sec-sub fu d2" style="margin:0 auto;">Squad size, number of teams, which data sources you use — every club is different. Tell us about yours and we'll put together a plan and a price that fit.</p>
+      <div class="sec-label fu">Trusted by Clubs</div>
+      <h2 class="sec-title fu d1">Clubs using our system</h2>
     </div>
+    <div class="trusted-clubs" style="max-width:960px;margin:0 auto 2.5rem;padding:0 1rem;text-align:center;">
+      <div class="club-logos">
+        <div class="club-logo-box">
+          <img src="https://upload.wikimedia.org/wikipedia/en/d/d8/SK_Tr%C3%A6ff.gif" alt="SK Træff logo"
+            loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <div class="pricing-single fu d2">
-      <div class="price-card featured">
-        <div class="price-tier">Custom plan</div>
-        <div class="price-headline">One plan, shaped to your setup</div>
-        <div class="price-desc">Full access to the AthletIQ platform — scoped and priced around what your club actually needs.</div>
-        <div class="price-divider"></div>
-        <ul class="price-feats">
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> AI injury-risk monitoring &amp; alerts</li>
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Squad readiness &amp; performance dashboards</li>
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Wearable, GPS &amp; wellness integrations</li>
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Player mobile app with AI coach</li>
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Onboarding, training &amp; ongoing support</li>
-        </ul>
-        <a href="signup.html" class="btn-price btn-price-fill">Contact Sales</a>
-        <p class="price-foot">We'll get back to you within 1–2 business days.</p>
+  <!-- PRICING -->
+  <div class="pricing-wrap" id="pricing">
+    <div class="pricing-inner">
+      <div class="sec-head" style="text-align:center;">
+        <div class="sec-label fu">Pricing</div>
+        <h2 class="sec-title fu d1">Pricing built around your club</h2>
+        <p class="sec-sub fu d2" style="margin:0 auto;">Squad size, number of teams, which data sources you use — every
+          club is different. Tell us about yours and we'll put together a plan and a price that fit.</p>
+      </div>
+
+      <div class="pricing-single fu d2">
+        <div class="price-card featured">
+          <div class="price-tier">Custom plan</div>
+          <div class="price-headline">One plan, shaped to your setup</div>
+          <div class="price-desc">Full access to the AthletIQ platform — scoped and priced around what your club
+            actually needs.</div>
+          <div class="price-divider"></div>
+          <ul class="price-feats">
+            <li><svg viewBox="0 0 24 24">
+                <polyline points="20 6 9 17 4 12" />
+              </svg> AI injury-risk monitoring &amp; alerts</li>
+            <li><svg viewBox="0 0 24 24">
+                <polyline points="20 6 9 17 4 12" />
+              </svg> Squad readiness &amp; performance dashboards</li>
+            <li><svg viewBox="0 0 24 24">
+                <polyline points="20 6 9 17 4 12" />
+              </svg> Wearable, GPS &amp; wellness integrations</li>
+            <li><svg viewBox="0 0 24 24">
+                <polyline points="20 6 9 17 4 12" />
+              </svg> Player mobile app with AI coach</li>
+            <li><svg viewBox="0 0 24 24">
+                <polyline points="20 6 9 17 4 12" />
+              </svg> Onboarding, training &amp; ongoing support</li>
+          </ul>
+          <a href="signup.html" class="btn-price btn-price-fill">Contact Sales</a>
+          <p class="price-foot">We'll get back to you within 1–2 business days.</p>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- FINAL CTA -->
-<section class="final-cta" id="contact">
-  <div class="final-inner">
-    <div class="sec-label fu" style="display:block;margin-bottom:12px;">Start Today</div>
-    <h2 class="fu d1">Ready to protect your<br>players with AI?</h2>
-    <p class="fu d2">Join 500+ clubs already using AthletIQ to prevent injuries, optimize training, and win more games.</p>
-    <div class="ctas fu d3">
-      <a href="#pricing" class="btn-primary">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="17" height="17"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-        Start Now
-      </a>
-      <a href="contact.html" class="btn-ghost">Contact Us</a>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="foot-inner">
-    <div class="foot-top">
-      <div class="foot-brand">
-        <a href="#" class="logo">Athlet<span>IQ</span></a>
-        <p>AI-powered player intelligence for modern football clubs. Prevent injuries, optimize performance, win more.</p>
-      </div>
-      <div class="foot-col">
-        <h4>Product</h4>
-        <ul>
-          <li><a href="#features">Features</a></li>
-          <li><a href="#pricing">Pricing</a></li>
-          <li><a href="integrations.html">Integrations</a></li>
-          <li><a href="#">Changelog</a></li>
-        </ul>
-      </div>
-      <div class="foot-col">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">Careers</a></li>
-          <li><a href="#">Press</a></li>
-        </ul>
-      </div>
-      <div class="foot-col">
-        <h4>Support</h4>
-        <ul>
-          <li><a href="integrations.html">Integrations</a></li>
-          <li><a href="#">Help Center</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="privacy.html">Privacy Policy</a></li>
-        </ul>
+  <!-- FINAL CTA -->
+  <section class="final-cta" id="contact">
+    <div class="final-inner">
+      <div class="sec-label fu" style="display:block;margin-bottom:12px;">Start Today</div>
+      <h2 class="fu d1">Ready to protect your<br>players with AI?</h2>
+      <p class="fu d2">Join 500+ clubs already using AthletIQ to prevent injuries, optimize training, and win more
+        games.</p>
+      <div class="ctas fu d3">
+        <a href="#pricing" class="btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" width="17" height="17">
+            <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+          Start Now
+        </a>
+        <a href="contact.html" class="btn-ghost">Contact Us</a>
       </div>
     </div>
-    <div class="foot-bottom">
-      <div>© 2025 AthletIQ. All rights reserved.</div>
-      <div>Built for the beautiful game.</div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="foot-inner">
+      <div class="foot-top">
+        <div class="foot-brand">
+          <a href="#" class="logo">Athlet<span>IQ</span></a>
+          <p>AI-powered player intelligence for modern football clubs. Prevent injuries, optimize performance, win more.
+          </p>
+        </div>
+        <div class="foot-col">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="integrations.html">Integrations</a></li>
+            <li><a href="#">Changelog</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="integrations.html">Integrations</a></li>
+            <li><a href="support.html">Support</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <div>© 2025 AthletIQ. All rights reserved.</div>
+        <div>Built for the beautiful game.</div>
+      </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
-<script>
-  // Fade-up on scroll
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.fu').forEach(el => obs.observe(el));
+  <script>
+    // Fade-up on scroll
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fu').forEach(el => obs.observe(el));
 
-  // Counter animation
-  function animateCount(el) {
-    const raw = el.dataset.target;
-    const suffix = el.dataset.suffix || '';
-    const isFloat = raw.includes('.');
-    const target = parseFloat(raw);
-    const duration = 1800;
-    const start = performance.now();
-    const run = now => {
-      const t = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - t, 3);
-      const val = eased * target;
-      el.textContent = isFloat ? val.toFixed(1) + suffix : Math.round(val).toLocaleString() + suffix;
-      if (t < 1) requestAnimationFrame(run);
-    };
-    requestAnimationFrame(run);
-  }
+    // Counter animation
+    function animateCount(el) {
+      const raw = el.dataset.target;
+      const suffix = el.dataset.suffix || '';
+      const isFloat = raw.includes('.');
+      const target = parseFloat(raw);
+      const duration = 1800;
+      const start = performance.now();
+      const run = now => {
+        const t = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - t, 3);
+        const val = eased * target;
+        el.textContent = isFloat ? val.toFixed(1) + suffix : Math.round(val).toLocaleString() + suffix;
+        if (t < 1) requestAnimationFrame(run);
+      };
+      requestAnimationFrame(run);
+    }
 
-  const cObs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting && e.target.dataset.target) {
-        animateCount(e.target);
-        cObs.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.5 });
-  document.querySelectorAll('[data-target]').forEach(el => cObs.observe(el));
-
-  // Staggered "pop-in" for the result chips. Plays every time the user scrolls
-  // DOWN into the section; scrolling up above it re-arms it. Scrolling up into it
-  // from lower on the page shows the chips with no animation.
-  const outcome = document.querySelector('.tour-outcome');
-  if (outcome) {
-    const chips = outcome.querySelectorAll('.outcome-chip');
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    let timers = [];
-    let revealed = false;
-
-    const clearTimers = () => { timers.forEach(clearTimeout); timers = []; };
-    const rearm = () => {
-      clearTimers();
-      chips.forEach(c => c.classList.remove('shown', 'popped'));
-      revealed = false;
-    };
-    const showInstant = () => {
-      clearTimers();
-      chips.forEach(c => { c.classList.remove('popped'); c.classList.add('shown'); });
-      revealed = true;
-    };
-    const showStaggered = () => {
-      clearTimers();
-      chips.forEach(c => c.classList.remove('shown', 'popped'));
-      chips.forEach((c, i) => timers.push(setTimeout(() => c.classList.add('popped'), 400 + i * 700)));
-      revealed = true;
-    };
-
-    const oObs = new IntersectionObserver(entries => {
+    const cObs = new IntersectionObserver(entries => {
       entries.forEach(e => {
-        if (e.isIntersecting) {
-          if (e.intersectionRatio < 0.35 || revealed) return;
-          // top < 0 => entered from the top of the viewport = scrolling up into it.
-          // otherwise it entered from below the fold = scrolling down into it.
-          (reduceMotion || e.boundingClientRect.top < 0) ? showInstant() : showStaggered();
-        } else if (e.boundingClientRect.top > 0) {
-          // section has scrolled back below the viewport (user went back up above
-          // it) — re-arm so the next scroll-down replays the animation.
-          rearm();
+        if (e.isIntersecting && e.target.dataset.target) {
+          animateCount(e.target);
+          cObs.unobserve(e.target);
         }
       });
-    }, { threshold: [0, 0.35] });
-    oObs.observe(outcome);
-  }
-</script>
+    }, { threshold: 0.5 });
+    document.querySelectorAll('[data-target]').forEach(el => cObs.observe(el));
+
+    // Staggered "pop-in" for the result chips. Plays every time the user scrolls
+    // DOWN into the section; scrolling up above it re-arms it. Scrolling up into it
+    // from lower on the page shows the chips with no animation.
+    const outcome = document.querySelector('.tour-outcome');
+    if (outcome) {
+      const chips = outcome.querySelectorAll('.outcome-chip');
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let timers = [];
+      let revealed = false;
+
+      const clearTimers = () => { timers.forEach(clearTimeout); timers = []; };
+      const rearm = () => {
+        clearTimers();
+        chips.forEach(c => c.classList.remove('shown', 'popped'));
+        revealed = false;
+      };
+      const showInstant = () => {
+        clearTimers();
+        chips.forEach(c => { c.classList.remove('popped'); c.classList.add('shown'); });
+        revealed = true;
+      };
+      const showStaggered = () => {
+        clearTimers();
+        chips.forEach(c => c.classList.remove('shown', 'popped'));
+        chips.forEach((c, i) => timers.push(setTimeout(() => c.classList.add('popped'), 400 + i * 700)));
+        revealed = true;
+      };
+
+      const oObs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            if (e.intersectionRatio < 0.35 || revealed) return;
+            // top < 0 => entered from the top of the viewport = scrolling up into it.
+            // otherwise it entered from below the fold = scrolling down into it.
+            (reduceMotion || e.boundingClientRect.top < 0) ? showInstant() : showStaggered();
+          } else if (e.boundingClientRect.top > 0) {
+            // section has scrolled back below the viewport (user went back up above
+            // it) — re-arm so the next scroll-down replays the animation.
+            rearm();
+          }
+        });
+      }, { threshold: [0, 0.35] });
+      oObs.observe(outcome);
+    }
+  </script>
 
 </body>
+
 </html>
