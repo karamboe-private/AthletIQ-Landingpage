@@ -11,4 +11,3 @@ COPY . /usr/share/nginx/html
 RUN rm -rf /usr/share/nginx/html/nginx
 
 EXPOSE 80
-c
