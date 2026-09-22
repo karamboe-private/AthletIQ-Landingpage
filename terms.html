@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service — AthletIQ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg-dark: #050B14;
+      --bg-navy: #081422;
+      --blue: #00A8FF;
+      --green: #00E5A0;
+      --amber: #FFB020;
+      --white: #FFFFFF;
+      --muted: #6B7E94;
+      --text-sec: #A0B4C8;
+      --border: rgba(255, 255, 255, 0.08);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-dark);
+      color: var(--white);
+      line-height: 1.7;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(5, 11, 20, 0.92);
+      backdrop-filter: blur(24px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .nav-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.35rem;
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .logo span {
+      color: var(--blue);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-sec);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 180ms;
+    }
+
+    .nav-links a:hover {
+      color: var(--white);
+    }
+
+    .policy-header {
+      max-width: 840px;
+      margin: 0 auto;
+      padding: 60px 24px 24px;
+      text-align: center;
+    }
+
+    .policy-header h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.4rem, 4vw, 3.6rem);
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .policy-header p {
+      color: var(--text-sec);
+      font-size: 0.95rem;
+    }
+
+    .draft-banner {
+      max-width: 820px;
+      margin: 0 auto 40px;
+      padding: 0 24px;
+    }
+
+    .draft-banner-inner {
+      background: rgba(255, 176, 32, 0.1);
+      border: 1px solid rgba(255, 176, 32, 0.3);
+      border-radius: 14px;
+      padding: 16px 20px;
+      color: var(--amber);
+      font-size: 0.92rem;
+      font-weight: 500;
+    }
+
+    .policy-content {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 24px 60px;
+    }
+
+    .section {
+      margin-bottom: 48px;
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--white);
+    }
+
+    .section p,
+    .section li {
+      color: var(--text-sec);
+      font-size: 0.98rem;
+      line-height: 1.85;
+      margin-bottom: 12px;
+    }
+
+    .section ul {
+      list-style: none;
+      padding-left: 0;
+      display: grid;
+      gap: 12px;
+    }
+
+    .section li {
+      display: flex;
+      gap: 10px;
+      padding-left: 0;
+    }
+
+    .section li::before {
+      content: '→';
+      color: var(--blue);
+      font-weight: 600;
+      margin-right: 6px;
+      flex-shrink: 0;
+    }
+
+    .highlight-box {
+      background: rgba(0, 168, 255, 0.08);
+      border: 1px solid rgba(0, 168, 255, 0.18);
+      border-radius: 18px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+
+    .highlight-box strong {
+      color: var(--blue);
+    }
+
+    .subsection {
+      margin-top: 24px;
+      padding-left: 16px;
+      border-left: 2px solid rgba(0, 168, 255, 0.25);
+    }
+
+    .subsection h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+      color: var(--white);
+    }
+
+    .subsection p {
+      margin-bottom: 10px;
+    }
+
+    footer {
+      margin-top: 60px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 24px;
+      background: var(--bg-navy);
+    }
+
+    .footer-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .footer-inner a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .footer-inner a:hover {
+      color: var(--white);
+    }
+
+    @media (max-width: 720px) {
+      .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="logo">Athlet<span>IQ</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#features">Features</a></li>
+        <li><a href="index.html#pricing">Pricing</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="policy-header">
+    <h1>Terms of Service</h1>
+    <p>Last updated: September 2026 — The terms governing your use of AthletIQ</p>
+  </header>
+
+  <div class="draft-banner">
+    <div class="draft-banner-inner">
+      <strong>Draft — pending legal review.</strong> AthletIQ is currently in pre-production/test deployment.
+      This document describes the terms we intend to operate under and is provided for transparency to early
+      clubs and testers, but has not yet been reviewed by counsel and may change before general availability.
+    </div>
+  </div>
+
+  <main class="policy-content">
+    <section class="section">
+      <h2 class="section-title">1. Introduction &amp; Acceptance</h2>
+      <p>These Terms of Service ("Terms") govern access to and use of the AthletIQ platform ("Service"),
+        provided to football clubs and their staff and players ("you", "your club"). By activating an account,
+        registering a passkey, or otherwise using the Service, you agree to be bound by these Terms and by our
+        <a href="privacy.html" style="color:var(--blue);text-decoration:none;">Privacy Policy</a>, which is
+        incorporated by reference.</p>
+      <p>If you are using the Service on behalf of a club or organization, you represent that you have the
+        authority to bind that organization to these Terms.</p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">2. The Service</h2>
+      <p>AthletIQ is a performance and wellness management platform for football clubs, covering training
+        planning, wearable and GPS data integration, wellness surveys, AI-assisted analysis, and team
+        communication. Features available to a given account depend on the roles assigned by your club's
+        administrators (e.g. Admin, Coach, Personnel, Player).</p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">3. Accounts &amp; Activation</h2>
+      <p>AthletIQ accounts are invite-only: a club administrator issues an activation code or link, and each
+        person completes activation themselves and registers a passkey (or other supported authentication
+        method) as their sole means of signing in — AthletIQ does not use or store account passwords.</p>
+      <ul>
+        <li>You are responsible for keeping your authentication device(s) and passkeys secure</li>
+        <li>You must provide accurate information during activation and keep it up to date</li>
+        <li>Accounts are personal to the individual activated and may not be shared or transferred</li>
+        <li>Your club administrator may suspend or deactivate your account in accordance with their own
+          policies (e.g. on leaving the club)</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">4. Acceptable Use</h2>
+      <p>You agree not to:</p>
+      <ul>
+        <li>Use the Service to upload or process data you are not authorized to collect about a player, coach,
+          or staff member</li>
+        <li>Attempt to access accounts, teams, or clubs other than your own, or to circumvent the Service's
+          access controls</li>
+        <li>Reverse-engineer, scrape, or attempt to extract the Service's underlying models, code, or datasets
+          beyond your own club's data</li>
+        <li>Use the Service in a way that violates applicable law, including data protection law applicable to
+          minors</li>
+        <li>Introduce malware, attempt denial-of-service, or otherwise interfere with the Service's operation</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">5. Data Ownership &amp; the Club/AthletIQ Relationship</h2>
+      <p>As between your club and AthletIQ: your club is the <strong>data controller</strong> for the personal
+        and performance data of its players and staff, and remains the owner of that data at all times.
+        AthletIQ acts as a <strong>data processor</strong>, processing that data solely to provide the Service
+        and on your club's instructions, as further described in our
+        <a href="privacy.html" style="color:var(--blue);text-decoration:none;">Privacy Policy</a> and in the
+        Data Processing Agreement made available to clubs.</p>
+      <div class="highlight-box">
+        <strong>Your club owns its data.</strong> AthletIQ does not sell player or club data, and does not use
+        it to train models for or share it with other clubs.
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">6. AI-Assisted Features</h2>
+      <p>The Service includes features that use artificial intelligence — including chat assistants and
+        automated analysis of wearable, wellness, and nutrition data — to support (not replace) coaching and
+        medical judgment. AI-generated output may be incomplete or inaccurate and should not be treated as
+        medical advice. Certain AI features send the relevant data to a third-party AI provider for processing;
+        see the in-product disclosure shown at each AI feature and our
+        <a href="privacy.html" style="color:var(--blue);text-decoration:none;">Privacy Policy</a> for details.</p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">7. Third-Party Integrations</h2>
+      <p>The Service can connect to third-party wearable, GPS, and notification providers you choose to
+        authorize. Your use of those providers is also governed by their own terms. AthletIQ is not responsible
+        for the availability or accuracy of third-party services.</p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">8. Service Availability</h2>
+      <p>AthletIQ is currently offered on a pre-production/test basis. We aim for high availability but do not
+        guarantee uninterrupted access, and the Service may be updated, changed, or temporarily unavailable
+        without notice during this phase. We will communicate material changes affecting your club where
+        practical.</p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">9. Disclaimers &amp; Limitation of Liability</h2>
+      <p>The Service is provided "as is" without warranties of any kind, express or implied, to the maximum
+        extent permitted by law. AthletIQ is a decision-support tool; final decisions regarding player health,
+        selection, and training remain the responsibility of your club's own qualified staff. To the maximum
+        extent permitted by applicable law, AthletIQ's aggregate liability arising from use of the Service is
+        limited as set out in the commercial agreement between AthletIQ and your club, or, absent such an
+        agreement, to the fullest extent the law allows exclusion of liability.</p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">10. Termination</h2>
+      <p>Your club may stop using the Service at any time. AthletIQ may suspend or terminate access for
+        breach of these Terms, non-payment (where applicable), or misuse that risks the security or integrity
+        of the Service or other clubs' data. On termination, data export and deletion are handled in accordance
+        with our <a href="privacy.html" style="color:var(--blue);text-decoration:none;">Privacy Policy</a> and
+        applicable data protection law.</p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">11. Changes to These Terms</h2>
+      <p>We may update these Terms as the Service evolves, particularly as we move from pre-production to
+        general availability. Material changes will be communicated to your club, and continued use of the
+        Service after changes take effect constitutes acceptance of the updated Terms.</p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">12. Governing Law &amp; Contact</h2>
+      <p>The governing law and jurisdiction for these Terms will be specified here once finalized with legal
+        counsel ahead of general availability.</p>
+      <ul>
+        <li><strong>Email:</strong> <a href="mailto:hello@athletiq.ai"
+            style="color:var(--blue);text-decoration:none;">hello@athletiq.ai</a></li>
+        <li><strong>Privacy &amp; Data Requests:</strong> <a href="mailto:privacy@athletiq.ai"
+            style="color:var(--blue);text-decoration:none;">privacy@athletiq.ai</a></li>
+      </ul>
+    </section>
+
+    <div class="highlight-box"
+      style="margin-top: 40px; background: rgba(0,229,160,0.08); border-color: rgba(0,229,160,0.2);">
+      <strong style="color: var(--green);">Built for clubs, by athletes.</strong> These Terms exist to keep the
+      relationship between your club and AthletIQ clear and fair as the platform grows.
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>© 2026 AthletIQ. All rights reserved.</div>
+      <div><a href="privacy.html">Privacy Policy</a> · <a href="support.html">Support</a> ·
+        <a href="contact.html">Contact</a> · <a href="index.html">Back to homepage</a></div>
+    </div>
+  </footer>
+</body>
+
+</html>
